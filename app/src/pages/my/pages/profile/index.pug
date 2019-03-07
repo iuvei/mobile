@@ -1,0 +1,148 @@
+.profile
+  van-nav-bar(title="个人资料" @click-left="onClickLeft" left-arrow)
+  .wrap(ref="container")
+    .scroller
+      .container(v-if="isShow")
+        van-cell-group
+          //- 头像
+          van-cell(
+            title="头像" 
+            is-link
+            @click="onChangeCell('avatar_url')"
+            center
+          )
+            template(slot="right-icon")
+              .avater
+                img(:src="selectAvaterUrl.length?require(`./img/${selectAvaterUrl}`):require(`./img/photo1.png`)")
+              //- img(src="./img/arrow.png" width="7px" height="13px")
+              i.van-icon.van-icon-arrow.van-cell__right-icon
+
+          //- 用户名
+          van-cell(
+            title="用户名"
+            :value="dataSource['username']"
+            center    
+          )
+
+          //- 真实姓名
+          van-cell(
+            title="真实姓名"
+            :value="dataSource['realname']"
+            center    
+          )
+          
+          //- 生日
+          van-cell(
+            title="生日"
+            :value="dataSource['birth']&&dataSource['birth']!=='0000-00-00'?new Date(dataSource['birth']).format('yyyy-MM-dd') : '请选择生日'"
+            center
+            is-link
+            @click="onChangeCell('birth',new Date(dataSource['birth']).format('yyyy-MM-dd'))"
+          )
+
+          //- 性别
+          van-cell(
+            title="性别"
+            :value="valueForKey(dataSource['sex'],sexInfo)"
+            center
+            is-link
+            @click="onChangeCell('sex',valueForKey(dataSource['sex'],sexInfo))"
+          )
+
+          //- //- 电子邮箱
+          //- van-cell(
+          //-   v-else-if="key==='email'"
+          //-   title="电子邮箱"
+          //-   :value="value.length?value:'请输入电子邮件'"
+          //-   :key="key"
+          //-   @click="onChangeCell('email',value)"                                    
+          //- )
+
+          //-  mobile
+          //- van-cell(
+          //-   v-else-if="key==='mobile'" 
+          //-   title="手机号码" 
+          //-   :value="value.length?value:'请输入手机号码'"
+          //-   :key="key"   
+          //-   @click="onChangeCell('mobile',value)"                            
+          //- )
+
+          //-  postcode
+          //- van-field(
+          //-   v-else-if="key==='postcode'" 
+          //-   label="邮政编码" 
+          //-   v-model="form['postcode']" 
+          //-   type="number" 
+          //-   clearable 
+          //-   :input-align="'right'" 
+          //-   placeholder="请输入邮政编码"
+          //-   :key="key"
+          //- )
+
+          //- QQ
+          van-field(
+            label="QQ" 
+            v-model="form['qq']" 
+            type="number"
+            :min="5"
+            :max="15" 
+            clearable 
+            :input-align="'right'"
+            placeholder="请输入QQ" 
+            :error-message="err.qq"    
+          )
+
+          //- 微信
+          van-field(
+            label="微信" 
+            v-model="form['wechat']" 
+            clearable
+            :input-align="'right'"
+            placeholder="请输入微信"
+            :error-message="err.wechat"        
+          )
+
+          //- skype
+          van-field(
+            v-model="form['skype']" 
+            label="skype" 
+            clearable 
+            :input-align="'right'"
+            placeholder="请输入skype"   
+            :error-message="err.skype"        
+          )
+
+      //- 提交按钮
+      .btn-wrap
+        van-button.common-large-btn(size="large" type="default" @click="submit") 提交
+    
+    //- popup弹框
+    van-popup(v-model="popupObj.show"  position="bottom" :overlay="true" :lock-scroll="true")
+      //- 切换头像
+      template(v-if="popupObj.type==='avatar_url'")
+        select-avater(:selectAvaterUrl="selectAvaterUrl" :avaterArr="avaterArr" @chooseAvater="chooseAvater" @cancel="onPopupCancel")     
+
+      //- 修改生日
+      template(v-else-if="popupObj.type==='birth'")
+        van-datetime-picker(
+          ref="picker"          
+          v-model="birthDate"
+          type="date"
+          :min-date="new Date(1970,0,2)"
+          :max-date="new Date()"
+          @cancel="onPopupCancel"
+          @confirm="onPopupConfirm"
+        )
+      template(v-else)
+        van-picker(
+          ref="picker1"
+          show-toolbar
+          confirm-button-text="确认" 
+          cancel-button-text="取消" 
+          :columns="popupObj.columns"
+          :value-key="'name'"
+          @cancel="onPopupCancel"
+          @confirm="onPopupConfirm"
+        )
+      
+

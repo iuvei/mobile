@@ -1,0 +1,80 @@
+.message-container
+  width 100%
+  font-size 14px
+  overflow-x hidden
+  overflow-y scroll
+
+  .container
+    flex 1
+    overflow hidden
+    position absolute
+    left 0
+    top 1.226667rem
+    right 0
+    bottom 0
+
+    .message-list
+      .message-list-item
+        padding 0 16px
+        height 60px
+        display flex
+        justify-content space-between
+        align-items center
+
+        div
+          .tit
+            line-height 20px
+            width 250px
+
+          .datetime
+            font-size 12px
+            line-height 16px
+
+      .item-delete
+        display inline-block
+        width 65px
+        height 60px
+        text-align center
+        line-height 60px
+        font-size 15px
+        border none
+
+  .message-detail
+    height 100%
+    width 100%
+    overflow-x hidden
+    overflow-y scroll
+
+    div
+      .top
+        height 40px
+        line-height 40px
+        width 100%
+        font-size 18px
+        text-align center
+        position relative
+
+        .close
+          position absolute
+          top 0
+          right 0
+          height 40px
+          width 40px
+          line-height 40px
+          text-align center
+
+      .tit
+        padding 12px 12px 0 12px
+        line-height 20px
+        text-align center
+        word-break break-all
+
+      .con
+        padding 12px 12px 0 12px
+        line-height 20px
+        word-break break-all
+
+      .datetime
+        padding 0 12px 12px 12px
+        line-height 18px
+        font-size 12px

@@ -1,0 +1,121 @@
+
+#app.card
+  /* * 公共变量 */
+  @import './variable.styl'
+  /* * 公共组件 */
+  @import './components/exchange-dialog.styl'
+  @import './components/fixed-service.styl'
+  @import '/components/hc-dialog.styl'
+  @import './components/notice.styl'
+  @import './components/select-avater.styl'
+  @import './components/tabbar.styl'
+  /* * 页面组件 */
+  @import './pages/my/index.styl'
+  @import './pages/activity/index.styl'
+  @import './pages/game/index.styl'
+  @import './pages/trial.styl'
+
+  /*
+   * 大按钮（可用于登录、注册等）
+   */
+  .common-large-btn
+    background $base-main-color
+    color #fff
+    line-height 40px
+    height 40px
+    font-size 16px
+    text-align center
+    border-radius 3px
+    border none
+
+  /* 没有数据的样式-个人中心的有效投注等多个页面会用到 */
+  .no-data
+    color $base-disabled-color
+
+  input::input-placeholder
+    color $base-disabled-color !important
+
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+    color $base-disabled-color !important
+
+  input:-moz-placeholder, textarea:-moz-placeholder
+    color $base-disabled-color !important
+
+  input::-moz-placeholder, textarea::-moz-placeholder
+    color $base-disabled-color !important
+
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder
+    color $base-disabled-color !important
+
+  .van-tabs__wrap
+    &::after
+      border-width 0
+    .van-tabs__nav
+      background-color $base-content-bg-color
+      .van-tab
+        background-color $base-content-bg-color
+      .van-tab.van-tab--active
+        color $base-main-font-color
+
+    .van-tabs__line
+      background-color $base-main-color
+
+  .van-cell__value, .van-field__control--right
+    color $base-disabled-color
+
+  // info
+  .van-picker__confirm
+    color $base-main-font-color
+
+  // banner滑动标识(小圆点)
+  .van-swipe__indicator
+    background-color rgba(256, 256, 256, 0.75)
+    width 8px
+    height 8px
+
+    &.van-swipe__indicator--active
+      background-color #B98EFF
+
+  // 所有页头底色nav-bar
+  .van-nav-bar
+    background-color #F6F6F8
+
+    &::after
+      border-bottom-color #F6F6F8
+
+  .van-cell
+    color #777
+
+  .van-cell:not(:last-child)::after
+    border-color $base-bg-color-divide
+    
+  ul.van-pagination
+    .van-pagination__next,
+    .van-pagination__prev
+      color $base-main-color
+      border 1px solid $base-main-color
+    .van-pagination__item::after
+      border none
+    .van-pagination__item--disabled, 
+    .van-pagination__item--disabled:active
+      border 1px solid $base-disabled-color
+      color $base-disabled-color
+
+  .van-picker
+    background-color $base-bg-color-content
+    .van-picker__cancel
+      color #777777
+    .van-picker__confirm
+      color #6C65FF
+    .van-picker__title
+      color #777777
+    .van-hairline--top-bottom::after
+      border-color #E6E6E6
+    .van-picker-column__item
+      color #8E8E8E
+      &.van-picker-column__item--selected
+        color #777777
+
+// 取代.hairlines给：after或者：before加的border为0.5px
+.hairlines .card .van-cell:not(:last-child)::after
+  border-bottom 1px solid #E6E6E6 !important

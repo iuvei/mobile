@@ -1,0 +1,41 @@
+.orders-container
+  .header-right
+    color $base-link-btn-color
+  .orders-main-container
+    .orders-summary-container
+      .orders-summary-item
+        .item-val
+          &.red
+            color $base-error-color
+
+          &.green
+            color $base-success-color
+
+    .orders-data-container
+      background-color $base-content-bg-color
+      .orders-data-list
+        .van-collapse-item.win
+            .van-cell__value
+              color $base-success-color
+
+    .menu-container
+      .menu-list
+        .menu-item
+          &.active
+            background-color $base-main-color
+
+        .date-list
+          .date-item
+            background-color $base-bg-color
+
+            &.active
+              color $base-main-font-color
+
+        .btn-item
+          .btn
+            border 1px solid $base-main-color
+            color $base-main-font-color
+
+            &.query
+              background-color $base-main-color
+              color #FFF

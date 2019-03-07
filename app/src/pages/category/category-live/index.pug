@@ -1,0 +1,21 @@
+.category-live-container
+  van-nav-bar(@click-left="onClickLeft" title="真人视讯" left-arrow)
+  .container(ref="container")
+    .scoller
+      van-swipe.banner(:autoplay="3000")
+        van-swipe-item(v-for="item,index in swipeData" :key="index")
+          a(v-if="item.link_h5 && item.link_h5.length > 0" :href="item.link_h5" target="_blank")        
+            img.img(:src="item.img_h5")
+          img(v-else v-lazy="item.img_h5")
+      
+      template(v-if="isLoading")    
+        .list-wrap(v-if="list&&list.length" )
+          template(v-for="item,index in list")
+            //-大图 
+            .wrap1(v-if="(index+1)%5===0")
+              img(:src="require(`./img/big/${item.partner_name}.png`)" @click="goDetail(item)")        
+            //- 小图
+            .wrap(v-else :class="{'right':(index-parseInt(index/5)*5)%2!=0}")
+              img(:src="require(`./img/small/${item.partner_name}.png`)" @click="goDetail(item)")
+        .no-data(v-else) 暂无数据
+        

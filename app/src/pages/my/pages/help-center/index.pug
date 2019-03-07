@@ -1,0 +1,52 @@
+.help-center-container
+  van-nav-bar(
+    v-if="!showDetail"
+    title="帮助中心"
+    left-arrow
+    @click-left="()=>this.$router.go(-1)"
+  )
+  van-nav-bar(
+    v-if="showDetail"
+    :title="detailTitle"
+    left-arrow
+    @click-left="showDetail = false"
+  )
+  .container(ref="container")
+    .scroller
+      template(v-if="!showDetail")
+        van-cell-group.group
+          van-cell(
+            title="帮助中心"
+            is-link
+            @click="gotoDetail('help')"
+          )
+            .icon(slot="icon")
+              img(src="../../img/helpcenter_help.svg")
+          van-cell(
+            title="服务条款"
+            is-link
+            @click="gotoDetail('provision')"
+          )
+            .icon(slot="icon")
+              img(src="../../img/helpcenter_provision.png")
+
+        van-cell-group.group
+          van-cell(
+            title="清理缓存"
+            @click="onDeleateCache")
+            .icon(slot="icon")
+              img(src="../../img/helpcenter_delete.png")
+      
+      template(v-if="showDetail")
+        van-tabs(
+          v-if="helpDetailData.length > 0"
+          sticky
+          swipeable)
+          van-tab(
+            v-for="(item, index) in helpDetailData"
+            :key="index"
+            :title="item.name")
+            .con(v-html="item.content")
+        .no-data(v-else)
+          i.iconfont.icon-hc-no-data
+          div 没有数据

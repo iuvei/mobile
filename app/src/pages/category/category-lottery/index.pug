@@ -1,0 +1,16 @@
+.category-lottery-container
+  van-nav-bar(title="彩票游戏" left-arrow fixed @click-left="()=>this.$router.go(-1)")
+  
+  .container(ref="container")
+    .scroller
+
+      van-swipe(:autoplay="3000")
+        van-swipe-item(v-for="item,index in swipeList" :key="index")
+          a(v-if="item.link_h5 && item.link_h5.length > 0" :href="item.link_h5" target="_blank")        
+            img.img(:src="item.img_h5")
+          img(v-else v-lazy="item.img_h5")
+      
+      ul.game-list(v-if="lotteryList && lotteryList.length > 0")
+        li(v-for="item,index in lotteryList" :key="index")
+          img.img(:src="item.img_h5" :alt="item.partner_name" @click="goDetail(item)")
+      .no-data(v-else) 暂无数据

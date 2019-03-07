@@ -1,0 +1,213 @@
+*
+  box-sizing border-box
+
+.recharge-offline-container
+  font-size 14px
+  flex 1
+  position relative
+  display flex
+  width 200%
+  transition transform 0.5s
+
+  &.next
+    transform translateX(-50%)
+
+  .first-container
+    width 50%
+    display flex
+    flex-direction column
+
+    .scroller-box
+      flex 1
+      overflow auto
+      -webkit-overflow-scrolling touch
+
+      &::after
+        min-height cale(100% + 1px)
+
+      .recharge-info-container
+        background-color #FFF
+        width 100%
+        padding 18px 0 0 0
+
+        >>>
+          .van-cell--clickable .van-cell__value .van-field__body input
+            text-align right
+            color #bbb !important
+
+          .van-cell-group
+            .van-cell
+              .van-cell__title
+                color #777
+
+        .info-title
+          margin-left 15px
+          color #777
+
+        .info-input
+          margin 8px 15px 0
+          padding-bottom 21px
+          position relative
+          &:after
+            content ""
+            position absolute
+            left 0
+            right -15px
+            bottom 0
+            border-bottom 0.5px solid #eee
+
+          input
+            width 100%
+            height 50px
+            border 1px solid #ECEDED
+            border-radius 2px
+            padding-left 5px
+            -webkit-appearance none
+
+        >>>
+          [class*=van-hairline]:not(:first-child)::after
+            border none
+
+      .activities-container
+        margin-top 10px
+        >>>
+          .van-collapse
+            .van-collapse-item
+              .van-collapse-item__title
+                color #CFCFCF
+                &:after
+                  left 0 !important
+              .van-collapse-item__content
+                padding 0
+                .van-cell__title
+                  color #777777
+
+      .recharge-tips
+        color #BBBBBB
+        padding 16px 14px
+        font-size 12px
+        line-height 18px
+
+    .submit-button
+      height 60px
+      width 100%
+      background-color #fff
+      display flex
+      align-items center
+      padding 0 16px
+
+      .recharge-final
+        flex 1
+        padding-right 5px
+        color #777
+
+      button
+        color #ffffff
+        border-radius 2px
+        border none
+        height 40px
+        width 167px
+
+    .gray
+      color #777777
+
+    .red
+      color #FF4222
+
+  .next-container
+    width 50%
+    position relative
+    display flex
+    flex-direction column
+
+    .scroller-box
+      flex 1
+      display flex
+      flex-direction column
+      overflow auto
+      -webkit-overflow-scrolling touch
+
+      &::after
+        min-height cale(100% + 1px)
+
+      .scroller
+        flex 1
+
+        .recharge-amount
+          padding 32px 0 20px 0
+          background-color #FFF
+          text-align center
+          color #777
+
+        .recharge-account-info
+          margin-top 20px
+          padding-left 18px
+
+          .recharge-account-item
+            display flex
+            height 48px
+            align-items center
+
+            &:not(:last-child)
+              border-bottom 1px solid #E6E6E6
+
+            .recharge-account-label
+              color #777
+
+            .recharge-account-value
+              flex 1
+              color #8e8e8e
+              text-align right
+              padding-right 10px
+
+            button.copy-btn
+              margin-right 10px
+              padding 0 12px
+              height 26px
+              background-color transparent
+              outline none
+              border-radius 26px
+              font-size 12px
+
+          .recharge-account-title
+            line-height 55px
+
+          .recharge-account-img
+            text-align center
+            padding-right  18px
+
+            img 
+              max-width 167px
+              max-height 167px
+
+            .recharge-account-tip
+              margin-top 6px
+              font-size 12px
+              padding-bottom 21px
+
+        .recharge-tips
+          color #BBBBBB
+          padding 16px 14px
+          font-size 12px
+          line-height 18px
+
+    .submit-content
+      width 100%
+      height 60px
+      background-color #FFF
+      display flex
+      align-items center
+      justify-content space-around
+
+      button
+        width 167px
+        height 40px
+        border-radius 4px
+        outline none
+        padding 0
+
+      button.cancel
+        background-color #FFF
+
+      button.submit
+        color #FFF

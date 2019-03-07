@@ -1,0 +1,10 @@
+.wscn-container(:class="{freeze: !type}")
+  .wscn-maintaining(v-if="type==='maintain'")
+    img(src="./img/freeze.png")
+    p 维护中-维护时间：
+    p 美东时间：{{maintain_time.start_time}}~{{maintain_time.end_time}}
+    p 北京时间：{{formatTime.start_time}}~{{formatTime.end_time}}
+  .wscn-freeze(v-else)
+    img(src="./img/freeze.png")
+    p 抱歉！该厅已经被冻结，暂时无法登录
+    

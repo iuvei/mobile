@@ -1,0 +1,144 @@
+
+#app.egame
+  /* * 公共变量 */
+  @import './variable.styl'
+  /* * 公共组件 */
+  @import './components/notice.styl'
+  @import './components/tabbar.styl'
+  @import './components/fixed-service.styl'
+  @import '/components/hc-dialog.styl'
+  @import './components/select-avater.styl'    
+  @import './components/exchange-dialog.styl'
+  /* * 页面组件 */
+  @import './pages/category-esport/index.styl'
+  @import './pages/category-live/index.styl'
+  @import './pages/category-egame/index.styl'
+  @import './pages/category-card/index.styl'
+  @import './pages/category-sport/index.styl'
+  @import './pages/category-lottery/index.styl'
+  @import './pages/game/index.styl'
+  @import './pages/activity/index.styl'
+  @import './pages/my/index.styl'
+  @import './pages/trial.styl'
+
+  /*
+   * 大按钮（可用于登录、注册等）
+   */
+  .common-large-btn
+    background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+    color #000
+    line-height 40px
+    height 40px
+    font-size 16px
+    text-align center
+    border-radius 3px
+    border none
+
+  /* 没有数据的样式-个人中心的有效投注等多个页面会用到 */
+  .no-data
+    color $base-text-color-content-sub
+    .iconfont
+      color $base-text-color-input
+
+  input::input-placeholder
+    color $base-text-color-content-sub !important
+
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+    color $base-text-color-content-sub !important
+
+  input:-moz-placeholder, textarea:-moz-placeholder
+    color $base-text-color-content-sub !important
+
+  input::-moz-placeholder, textarea::-moz-placeholder
+    color $base-text-color-content-sub !important
+
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder
+    color $base-text-color-content-sub !important
+
+  .van-tabs__wrap
+    &::after
+      border-width 0
+    .van-tabs__nav
+      background-color $base-bg-color-nav
+      .van-tab
+        color $base-text-color-content-main
+        background-color $base-bg-color-nav
+
+      .van-tab.van-tab--active
+        color $base-bg-color-indicator
+
+    .van-tabs__line
+      background-color $base-bg-color-indicator
+
+    .van-tabs__nav
+      background-color $base-bg-color-nav
+      .van-tab
+        background-color transparent
+
+  .van-cell-group
+    background-color $base-bg-color-content
+    &:after
+      border-color $base-bg-color-divide
+
+  .van-cell
+    background-color $base-bg-color-content
+    color $base-text-color-content-sub
+    &:after
+      border-color $base-bg-color-divide
+      background-color $base-bg-color-content
+
+    .van-cell__title
+      color $base-text-color-title
+
+    .van-cell__value, .van-field__control--right
+      color $base-text-color-content-sub
+
+  // info
+  .van-picker__confirm
+    color $base-text-color-assistant
+
+  // banner滑动标识(小圆点)
+  .van-swipe__indicator--active
+    background-color $base-bg-color-indicator
+
+  // 所有页头底色nav-bar
+  .van-nav-bar
+    background-color $base-bg-color-nav
+    color #fff
+
+    &::after
+      border-bottom-color $base-bg-color-nav
+
+    .van-icon
+      color #fff
+      
+  ul.van-pagination
+      .van-pagination__next,
+      .van-pagination__prev
+        color $base-bg-color-indicator
+        border 1px solid $base-bg-color-indicator
+      .van-pagination__item::after
+        border none
+      .van-pagination__item--disabled,
+      .van-pagination__item--disabled:active
+        border 1px solid $base-text-color-input
+        color $base-text-color-input
+
+  .van-picker
+    background-color $base-bg-color-content
+    .van-picker__cancel
+      color $base-text-color-content-sub
+    .van-picker__confirm
+      color $base-text-color-assistant
+    .van-picker__title
+      color $base-text-color-title
+    .van-hairline--top-bottom::after
+      border-color #110D1E
+    .van-picker-column__item
+      color $base-text-color-content-sub
+      &.van-picker-column__item--selected
+        color $base-text-color-title
+
+// 取代.hairlines给：after或者：before加的border为0.5px
+.hairlines .egame .van-cell:not(:last-child)::after
+  border-bottom 1px solid #110d1e !important

@@ -1,0 +1,55 @@
+*
+  box-sizing border-box
+
+.notice-container
+  height 30px
+  color #000
+  font-weight 400
+  display flex
+  align-items center
+
+  .notice-content
+    font-size 12px
+    display flex
+    width 100%
+    align-items center
+
+    .iconfont
+      margin-right 2px
+      font-size 14px
+
+    .notice-box
+      display flex
+      flex 1
+      overflow hidden
+      letter-spacing 0
+
+      .notice-scroller
+        display flex
+        white-space nowrap
+
+#notice-list
+  >>>
+    .van-cell-group
+      background-color #fff !important
+      max-height 160px
+      overflow-y scroll
+      -webkit-overflow-scrolling touch
+      &:after
+        border none !important
+      .van-cell
+        background-color #fff !important
+        height 40px !important 
+        padding 0 !important
+
+        .van-cell__title
+          color #8E8E8E !important 
+          font-size 14px
+          width 100%
+          overflow hidden
+          text-overflow ellipsis
+          white-space nowrap
+          
+        &:after
+          border none !important
+

@@ -1,0 +1,48 @@
+.recharge-offline-container
+  .first-container
+    .scroller-box
+      .recharge-info-container
+        .info-input
+          input
+            &:focus
+              background-color $base-bg-color
+              border-color $base-main-color
+
+    .submit-button
+      button
+        background-color $base-main-color
+
+  .next-container
+    background-color $base-bg-color
+
+    .scroller-box
+      .scroller
+        .recharge-amount
+          background-color #FFF
+
+        .recharge-account-info
+          background-color #FFF
+          .recharge-account-item
+            button.copy-btn
+              border 1px solid $base-disabled-color
+              color $base-link-btn-color
+
+          .recharge-account-title
+            color #777
+            
+          .recharge-account-tip
+            color $base-disabled-color
+
+    .submit-content
+      button
+        border 1px solid $base-main-color
+
+      button.cancel
+        color $base-main-font-color
+
+      button.submit
+        background-color $base-main-color
+
+        &.disabled
+          border-color $base-disabled-color
+          background-color $base-disabled-color

@@ -1,0 +1,17 @@
+.activity
+  van-nav-bar(left-arrow @click-left="onBackClick")
+    div(slot="title" @click="onTitleClick")
+      span {{ types[typeIndex].name }}
+      i.van-icon.van-icon-arrow.van-cell__right-icon.van-cell__right-icon--down
+  .container(ref="container")
+    .scroller
+      .item(v-for="item, index in activitys" :key="index" @click="onItemClick(item)")
+        .content
+          .title {{ item.title }}
+          .desc(v-html="item.description")
+          img(:src="item.cover")
+          .apply(v-if="!item.is_auto_apply")
+            button(type="button" @click="apply(item.id)" @click.stop) 立即申请
+      .no-data(v-if="!activitys.length") 暂无数据
+  van-popup(v-model="isTypePickerVisible" position="bottom")
+    van-picker(show-toolbar title="请选择活动类型" :columns="types" value-key="name" @confirm="onTypeSelect" @cancel="onPickerClose" :loading="isTypeLoading")

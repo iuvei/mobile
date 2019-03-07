@@ -1,0 +1,192 @@
+@import '~@/styles/default/variable.styl'
+
+.index-default-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color $base-bg-color
+
+  .logo
+    display flex
+    align-items center
+    justify-content center
+    height 46px
+
+    img
+      // width 64px
+      height 29px
+
+  .header-left
+    display flex
+    align-items center
+    color $base-main-font-color
+
+    .iconfont
+      font-size 20px
+
+    .text
+      margin-left 5px
+      font-size 14px
+      font-weight 400
+
+  .container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .banner
+      img
+        width 100%
+        display block
+
+    .notice-icon
+      display flex
+      padding-right 2px
+
+      .iconfont
+        font-size 16px
+        color $base-main-color
+        margin-right 5px
+
+      .notice-title
+        width 28px
+        height 16px
+        line-height 16px
+        text-align center
+        border-radius 4px
+        background-color #C5E0FA
+        color #0084FF
+
+    .game-type
+      margin-top 10px
+      background-color #FFFFFF
+      overflow auto
+      -webkit-overflow-scrolling touch
+
+      &::after
+        min-width cale(100% + 1px)
+
+      ul
+        display flex
+        white-space nowrap
+        position relative
+
+        li.slide
+          position absolute
+          bottom 0
+          left 0
+          width 0
+          height 4px
+          background-color $base-main-color
+          transition transform 0.3s
+
+        li:not(.slide)
+          list-style none
+          text-align center
+          flex 1 0 80px
+          height 46px
+          font-size 16px
+          display flex
+          align-items center
+          color #777777
+
+          p
+            width 100%
+            display flex
+            justify-content center
+            align-items center
+            height 14px
+
+          &:not(:first-child) p
+            border-left 1px solid #E6E6E6
+
+          label
+            display flex
+
+            .iconfont
+              margin-right 4px
+              color #C5E0FA
+
+          &.active, &.active .iconfont
+            color #0084FF
+
+    .game-list
+      background-color #FFF
+      padding 16px 8px
+
+      .game-item
+        width 86px
+        height 86px
+        background-color #F5F5F5
+        background -webkit-linear-gradient(top, #FFFFFF 66%, #F5F5F5) /* Safari 5.1 - 6.0 */
+        background -o-linear-gradient(bottom, #FFFFFF 66%, #F5F5F5) /* Opera 11.1 - 12.0 */
+        background -moz-linear-gradient(bottom, #FFFFFF 66%, #F5F5F5) /* Firefox 3.6 - 15 */
+        background linear-gradient(to bottom, #FFFFFF 66%, #F5F5F5) /* 标准的语法 */
+        border-radius 16px
+        border 1px solid #F8F8F8
+        display flex
+        position relative
+        margin 0 auto
+        box-shadow 0 2px 8px rgba(209, 210, 213, 0.5)
+
+        .hot
+          width 22px
+          position absolute
+
+        .game-item-img-box
+          width 86px
+          background-repeat no-repeat
+          background-size 66px 66px
+          background-position center center
+
+      .game-item-title
+        flex 1
+        font-size 14px
+        color #777
+        display flex
+        justify-content center
+        align-items center
+        margin 8px 0 18px 0
+
+      ul.old
+        width 100%
+
+        li
+          width 33%
+          display inline-block
+          margin-top 3%
+          position relative
+          text-align center
+
+          .img-box
+            position relative
+            width 81px
+            height 81px
+            margin 0 auto
+
+            img
+              width 81px
+              height 81px
+
+            .hot
+              background url('../img/hot.png') no-repeat 100% / 100%
+              width 22px
+              height 22px
+              position absolute
+              left 0
+              top 0
+
+          .title
+            padding 5px 0
+            font-size 14px
+
+      .is-bottom
+        font-size 14px
+        padding 15px 0
+        clear both
+        color #bbb
+        text-align center

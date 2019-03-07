@@ -1,0 +1,42 @@
+.game-container
+  van-nav-bar(:title="type || title" left-arrow @click-left="goback" @click-right="toSearch")
+    i.iconfont.icon-hc-query(slot="right")
+
+  .game-main(ref="container")
+    .scroller
+      .game-active-container(v-if="actives.length")
+        van-swipe.banner(:autoplay="3000")
+          van-swipe-item(v-for="item, index in actives" :key="index")
+            a(v-if="item.link_h5 && item.link_h5.length > 0" :href="item.link_h5" target="_blank")
+              img(v-lazy="item.img_h5")
+            img(v-else v-lazy="item.img_h5")
+      van-tabs(v-model="tabActive")
+        van-tab(v-for="item,index in category" :key="item.id" :title="item.name")
+      .game-recommend-container(v-if="(typeId === 1 || typeId === 14) && recommends.length")
+        .game-recommend-header
+          .title 推荐游戏
+          span.more(@click="$router.push(`/game/recommend`)") 更多
+        .game-recommend-content
+          van-row
+            van-col(:span="6" v-for="item,index in recommends" :key="index")
+              .game-item
+                .game-logo(@click="goto(item)")
+                  img.logo(:src="item.img_url")
+                  .star(v-if="!item.is_favorite" @click="(e) => addfavorite(e, item.game_id, item.partner_name)")
+                  .star-active(v-if="item.is_favorite" @click="(e) => removefavorite(e, item.game_id, item.partner_name)")
+                span {{cutStrForNum(item.game_name, 5)}}
+      van-tabs.child(v-if="childcategory.length" v-model="childTabActive")
+        van-tab(v-for="item,index in childcategory" :key="item.id" :title="item.name")
+      .game-type-container(v-if="list.length")
+        .game-type-content
+          van-row
+            van-col(:span="6" v-for="item,index in list" :key="index")
+              .game-item
+                .game-logo(@click="goto(item)")
+                  img.logo(:src="item.img_url")
+                  .star(v-if="!item.is_favorite" @click="(e) => addfavorite(e, item.id, item.partner_name)")
+                  .star-active(v-if="item.is_favorite" @click="(e) => removefavorite(e, item.id, item.partner_name)")
+                span {{cutStrForNum(item.name, 5)}}
+      .no-data(v-else)
+        i.iconfont.icon-hc-no-data
+        .title {{typeId === 'favorites' ? '没有收藏' : '没有游戏'}}

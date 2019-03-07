@@ -1,0 +1,67 @@
+.my
+  van-nav-bar(title="会员中心")
+  .container(ref="container")
+    .scroller
+      .user
+        template(v-if="JSON.stringify(user)!=='{}' || freePlayer==='1'")
+          .login-account
+            .top
+              .img
+                img(@click="changeRouter('/my/profile')" :src="user.avatar_url?require(`./img/${user.avatar_url}`):require('./img/photo1.png')")
+              span {{user.username || username}}
+            .middle
+              span 总资产(元):
+              span.small(@click="clickChildWallet")
+                span 子钱包（元）
+                .img-refrash-1.iconfont.icon-hc-refresh
+            .bottom
+              span(id="myTargetElement")
+
+            .children-wallet-wrap(v-show="isShowWallet&&childWalletArr.length>0" )
+                .children-wa(:style="{height:isShowWallet&&childWalletArr.length>0?(childWalletArr.length+1)*40+'px':'0'}"  ref="children")
+                  div
+                    van-cell-group.children-wallet
+                      van-cell.cell(title="主钱包")
+                        template(slot="right-icon")
+                          span {{$fmoney(mainWallet,2)}}元
+                      van-cell.cell(
+                        v-for="item,index in childWalletArr"
+                        :title="item.name"
+                        :key="index"
+                      )
+                        template(slot="right-icon")
+                          span.rotate.refresh(v-show="!item.isShow")
+                            .fff
+                          span.balance(v-show="item.isShow") {{item.balance==='获取失败'?item.balance:$fmoney(item.balance,2)+'元'}}
+                          .img-refrash.iconfont.icon-hc-refresh(v-if="item.isShow" @click="reflreshChildWallet(index)")
+                    .tip 注：转入或转出子钱包，只支持整元的转账金额
+                    .reflash-btn
+                      van-button.common-large-btn(@click="oneRecycleFun" :disabled="btnAble") 全部回收
+
+        template(v-if="JSON.stringify(user)==='{}' && freePlayer!=='1'")
+          .account
+            .unlogin-img(@click="changeRouter('/my/login')" )
+            .unlogin-text(@click="onLoginClick")
+              span 登录
+              i /
+              span(v-if="registerSwitch") 注册
+        .btns
+          van-button.btn-item(type="default" plain @click="changeRouter('/exchange')") 额度转换
+          van-button.btn-item(type="default" plain @click="changeRouter('/my/withdrawal')") 提款
+          van-button.btn-item(type="default" plain @click="changeRouter('/my/recharge')") 充值
+
+      van-cell-group.group(v-for="item,index in list" :key="index")
+        van-cell(
+          v-for="value,key in item"
+          :title="value.title"
+          :key="key"
+          is-link
+          @click="changeRouter(`/my/${key}`)"
+        )
+          template(slot="icon")
+            i.iconfont(:class="value.icon")
+            span.info(v-if="key==='message'&&messageNum>0")
+              i {{messageNum}}
+
+      .loginout-btn(v-if="JSON.stringify(user)!=='{}' || freePlayer==='1'")
+        .common-large-btn(@click="onClickLogout") 退出登录

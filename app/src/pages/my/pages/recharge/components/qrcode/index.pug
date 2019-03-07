@@ -1,0 +1,22 @@
+.recharge-qrcode-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+  .recharge-qrcode-main-container
+    .scroller
+      .recharge-qrcode-title 扫码支付信息：
+      .recharge-qrcode-main
+        .recharge-qrcode-info
+          div
+            p 交易编号： {{info.orderNum}}
+            p 充值金额： {{info.money}} 元，获得优惠 {{info.reapProfit}} 元
+          button.copy(v-clipboard:copy="info.orderNum", v-clipboard:success="onCopySuccess", v-clipboard:error="onCopyError") 复制
+        .recharge-qrcode-content(ref="content")
+          qrcode-vue(v-if="info && info.url" v-show="false" :value="info.url" :size="167")
+          img.img(:src="qrcode")
+        .recharge-qrcode-tips (长按二维码保存)
+        .recharge-qrcode-button
+          button(@click="paySuccess") 我已支付
+        .recharge-qrcode-scan-steps
+          p 扫码步骤：
+          p 1.请在对应的应用中打开“扫一扫”，点击右上角的相册
+          p 2.选择截屏二维码进行充值（如无法充值，请使用另一台手机扫码，或把二维码传到电脑，再使用手机扫码充值）
+          p 3.如资金未及时到账，请联系在线客服

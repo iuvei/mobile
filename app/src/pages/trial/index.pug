@@ -1,0 +1,44 @@
+.trial
+  van-nav-bar(
+    left-arrow
+    @click-left="()=>this.$router.go(-1)"
+  )
+  .container
+    .logo
+      img(v-if="logo" :src="logo")
+
+    .group-form
+      van-field(
+        v-model="username"
+        label="用户名"
+        disabled
+      )
+      van-field(
+        v-model="password"
+        label="密码"
+        :type="inputType"
+        :icon="visiblePwd"
+        @click-icon="toggleVisiblePwd"
+        placeholder="请输入6-16位数字和字母组合"
+        clearable
+        :error-message="errorPassword"
+      )
+      van-field(
+        v-model="pwdConfirm"
+        label="确认密码"
+        :type="inputType2"
+        :icon="visiblePwd2"
+        @click-icon="toggleVisiblePwd2"
+        placeholder="确认密码"
+        clearable
+        :error-message="errorPwdConfirm"
+      )
+      van-field(style="display:none")
+
+    .trial-btn
+      .common-large-btn(@click="onClickTrial") 立即试玩
+
+    ul.notice
+      li 说明：
+      li 1. 试玩账号不可进行存款和取款，不能参与平台优惠活动。
+      li 2. 试玩账号自注册起，有效期起 72 小时，超过时间系统将自动回收。

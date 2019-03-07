@@ -1,0 +1,18 @@
+.fixed-service-wrap
+
+  //-客服的小图标
+  .fixed-service.serve(@click="kefuPopup")
+  .fixed-service.float(v-show="float && closeFloat")
+    a(:href="float.link?float.link:'javascript:;'")
+      img(class="img" :src="float.pic?float.pic:''" )
+    .close(@click="closeFloat = false") ✕
+
+  //- 客服列表的弹出层
+  van-popup(v-model="showKefu" position="bottom" :overlay="true" :lock-scroll="true")
+    van-cell-group
+      van-cell(
+        v-for="value,key in kefuList"
+        :title="kefuLabel[key]"
+         @click.native="liveService(value,key)"
+        :key="key"
+      )

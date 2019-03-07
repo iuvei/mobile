@@ -1,0 +1,40 @@
+.bank-card-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+
+  .bank-card-main-container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .bank-card-item
+      display flex
+      height 1.866667rem
+      align-items center
+      padding 0 0.266667rem
+      background-color #FFF
+
+      &:not(:last-child)
+        border-bottom 1px solid #f8f8f8
+
+      .bank-icon
+        width 0.693333rem
+        height 0.693333rem
+
+      .bank-title
+        font-size 0.373333rem
+        flex 1
+        padding-left 0.213333rem
+
+    .bank-card-button-container
+      padding 20px 15px 15px
+
+    .bank-card-tips-container
+      padding 0 20px 0 16px
+      font-size 12px
+      line-height 18px

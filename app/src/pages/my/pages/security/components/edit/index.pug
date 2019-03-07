@@ -1,0 +1,58 @@
+.security-edit
+  van-nav-bar(:title="editObj.title" @click-left="onClickLeft" left-arrow)
+  .container
+    //- 已验证过身份
+    .img(v-if="type==='id_card1'")
+    //- 校验体现密码
+    van-tabs(v-if="editObj.tabs" @click="onClickTabs")
+      van-tab(
+        v-for="tab,index in editObj.tabs"
+        :key="index"
+        :title="tab.title"
+        :disabled="tab.disabled"
+      )
+
+
+    //- 表单
+    van-cell-group.group
+
+      van-cell(
+        v-for="item,index in editObj.cellGroup"
+        v-if="item.type==='cell'"
+        :title="item.title"
+        :value="item.value"
+        :key="index"       
+      )
+
+      van-field(
+        v-else-if="item.type==='field'"
+        :label="item.title"   
+        v-model="form[item.prop]"  
+        :key="index"
+        :placeholder="item.placeholder"
+        :type="item.password===true?'password':'text'"
+        :error-message="item.errorMes"
+        clearable  
+        :disabled="item.Disable || false"   
+        :icon="item.icon"
+        @click-icon="item.iconClick(item)"
+      )
+        van-button.button(
+          v-if="item.button" 
+          slot="button" 
+          size="small" 
+          @click="item.event(form[item.buttonProp])"
+          :disabled="item.disabled"
+        ) {{item.button}}
+
+      //- 按钮
+    p.footer(v-if="editObj.footer") {{editObj.footer}}
+    .submit.common-large-btn(
+      v-if="editObj.btn" 
+      size="large" 
+      type="default" 
+      @click="editObj.btn.event(form)"
+      :disabled="editObj.btn.disabled"
+    ) {{editObj.btn.title}}
+      
+      

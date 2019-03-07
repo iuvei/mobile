@@ -1,0 +1,25 @@
+$tabbar-item-color-base = #8979B5
+
+.tabbar
+  background-color $base-bg-color-nav
+  border-top-color $base-bg-color-nav
+
+  &:after
+    border-color $base-bg-color-nav
+
+  .label
+    color $tabbar-item-color-base
+
+    &.active
+      color $base-bg-color-indicator
+
+  .van-tabbar-item
+    padding-top 3px
+
+    .van-tabbar-item__icon
+      margin-bottom 3px
+
+  .iconfont
+    color $tabbar-item-color-base
+    &.active
+      color $base-bg-color-indicator

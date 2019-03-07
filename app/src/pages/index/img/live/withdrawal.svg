@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>申请退款</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="18.1196795%" y1="0%" x2="92.9669654%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFE7A1" offset="0%"></stop>
+            <stop stop-color="#AF8C24" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="45" height="45" rx="22.5"></rect>
+        <linearGradient x1="94.8005477%" y1="37.5299318%" x2="57.6580538%" y2="97.3499349%" id="linearGradient-4">
+            <stop stop-color="#FFE28C" offset="0%"></stop>
+            <stop stop-color="#F7E19E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="6.33592847%" y1="59.2368491%" x2="88.6740436%" y2="29.8237615%" id="linearGradient-5">
+            <stop stop-color="#FAD784" offset="0%"></stop>
+            <stop stop-color="#D4A722" stop-opacity="0.4" offset="100%"></stop>
+        </linearGradient>
+        <path d="M23.1171816,1.95708807 C25.6909139,4.56650333 26.1478643,11.2050923 21.1322036,16.5490359 C18.3175376,19.5502592 15.3747988,21.0978282 13.76,21.7679019 C13.0170832,22.077366 11.9858255,22.077366 11.24,21.7679019 C9.62520122,21.0978282 6.68263172,19.5502592 3.86779052,16.5490359 C-1.14787023,11.2050923 -0.690919811,4.5635929 1.88284754,1.95708807 C4.45931334,-0.652362689 8.6703082,-0.652362689 11.2468091,1.95708807 L11.5776679,2.2920362 C12.0878866,2.80892183 12.9121075,2.80892183 13.4223262,2.2920362 L13.7531851,1.95708807 C16.3296859,-0.652362689 20.5435545,-0.652362689 23.1171816,1.95708807 Z M17.724926,5.18008062 C17.5666024,5.05076413 17.3608754,4.98679437 17.1531073,5.00229242 C16.9453392,5.01774654 16.7525641,5.11135011 16.6170905,5.26253672 L12.5000018,9.89006887 L8.3828671,5.26253672 C8.10082491,4.94775626 7.60484559,4.91079823 7.27503162,5.18008062 C6.94527904,5.44930442 6.906546,5.92274221 7.18864958,6.23756662 L10.7557261,10.2500398 L9.35716261,10.2500398 C8.9232114,10.2500398 8.5714528,10.5858115 8.5714528,11.0000256 C8.5714528,11.4142544 8.9232114,11.7500261 9.35716261,11.7500261 L11.7143074,11.7500261 L11.7143074,13.2500563 L9.35716261,13.2500563 C8.9232114,13.2500563 8.5714528,13.585828 8.5714528,14.0000421 C8.5714528,14.4142709 8.9232114,14.7500279 9.35716261,14.7500279 L11.7143074,14.7500279 L11.7143074,16.2500142 C11.7143074,16.6642283 12.066066,17 12.5000018,17 C12.933953,17 13.2857116,16.6642283 13.2857116,16.2500142 L13.2857116,14.7500279 L15.642795,14.7500279 C16.0767462,14.7500279 16.4285509,14.4142709 16.4285509,14.0000421 C16.4285509,13.585828 16.0767462,13.2500563 15.642795,13.2500563 L13.2857116,13.2500563 L13.2857116,11.7500261 L15.642795,11.7500261 C16.0767462,11.7500261 16.4285509,11.4142544 16.4285509,11.0000256 C16.4285509,10.5858115 16.0767462,10.2500398 15.642795,10.2500398 L14.2442776,10.2500398 L17.8113694,6.23756662 C17.946843,6.08639465 18.0138585,5.89007617 17.9976072,5.69175086 C17.9814326,5.49341089 17.8832956,5.30933851 17.724926,5.18008062 Z" id="path-6"></path>
+        <filter x="-14.0%" y="-11.4%" width="128.0%" height="131.8%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.48   0 0 0 0 0.48   0 0 0 0 0.48  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="修改的地方" transform="translate(-487.000000, -207.000000)">
+            <g id="申请提款" transform="translate(487.000000, 207.000000)">
+                <g id="金底">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Rectangle-5" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <circle id="Oval-2" fill-opacity="0.5" fill="url(#linearGradient-4)" mask="url(#mask-3)" cx="-4" cy="3" r="31"></circle>
+                    <circle id="Oval-2" fill-opacity="0.7" fill="url(#linearGradient-5)" mask="url(#mask-3)" cx="22" cy="45" r="23"></circle>
+                </g>
+                <g id="转换" transform="translate(10.000000, 12.000000)">
+                    <g id="合并形状">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,53 @@
+.effective-orders-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+      .header-right(slot="right" @click="menuToggle")
+        span {{rightTitle}}
+        i.iconfont.icon-hc-filter
+  .effective-orders-main-container
+    .effective-orders-table-container(ref="container")
+      table
+        thead
+          th
+            .cell 日期
+          th
+            .cell 投注金额
+          th
+            .cell 有效投注
+          th
+            .cell 中奖金额
+          th
+            .cell 盈亏
+        tbody
+          template(v-if="tableData.length")
+            tr(v-for="item,index in tableData" :key="'row_'+index")
+              td(v-for="col,ci in columns" :key="'col_'+index+'_'+ci")
+                .cell(:class="col.className && col.className(item)") {{item[col.prop]}}
+            tr.summary(v-if="hasSummary")
+              td
+                .cell 合计
+              td(v-for="col,index in columns.slice(1)" :key="index")
+                .cell(:class="col.className && col.className(summary)") {{summary[col.prop]}}
+          tr(v-else)
+            td(colspan="5")
+              .no-data
+                i.iconfont.icon-hc-no-data
+                div 没有数据
+      van-pagination(v-if="tableData.length !== 0" v-model="pageInfo.current" :total-items="pageInfo.total" :items-per-page="pageInfo.size" @change="doQuery" mode="simple")
+
+    .menu-container(v-if="menuIsShow")
+      transition(name="fadeIn")
+        .menu-bg(@click="menuToggle" v-show="menuBgIsShow")
+      transition(name="moveIn")
+        .menu-list(@click.stop="" v-show="menuIsPop")
+          van-row
+            van-col(:span="6" v-for="(item, index) in menu" :key="index")
+              .menu-item(:class="{active: menuActive.menuIndex === index}" @click="menuActive.menuIndex = index") {{item.name}}
+          .date-list
+            .date-item(v-for="(item, index) in queryDateList" :key="index" :class="{active: menuActive.queryDateIndex === index}" @click="menuActive.queryDateIndex = index") {{item.name}}
+          van-row
+            van-col(:span="12")
+              .btn-item
+                button.btn.cancel(type="button" @click="menuToggle") 取消
+            van-col(:span="12")
+              .btn-item
+                button.btn.query(type="button" @click="menuSubmit") 查询

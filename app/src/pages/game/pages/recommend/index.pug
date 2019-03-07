@@ -1,0 +1,21 @@
+.game-recommend-container
+  .game-recommend-header
+    .game-recommend-header-scroller(:class="{search: searchShow}")
+      van-nav-bar(:title="title" left-arrow @click-left="goback" @click-right="toSearch")
+        i.iconfont.icon-hc-query(slot="right")
+      .game-search-container
+        .game-search-icon
+          i.iconfont.icon-hc-query
+        .game-search-input
+          input(v-model="searchKey" placeholder="请输入游戏名称")
+        .game-search-cancel(@click="cancelSearch") 取消
+  .game-recommend-content(ref="container")
+    .scroller
+      van-row
+        van-col(:span="6" v-for="item,index in searchGameList" :key="index")
+          .game-item
+            .game-logo(@click="goto(item)")
+              img.logo(:src="item.img_url")
+              .star(v-show="!item.is_favorite" @click="(e) => addfavorite(e, item)")
+              .star-active(v-show="item.is_favorite" @click="(e) => removefavorite(e, item)")
+            span {{cutStrForNum(item.game_name, 5)}}

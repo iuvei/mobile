@@ -1,0 +1,6 @@
+.activity-detail
+  van-nav-bar(left-arrow title="优惠详情" @click-left="onBackClick")
+  .container
+    p(v-html="content")
+  .apply-button-group(v-if="isApply")
+    .common-large-btn(@click="onApplyClick") 立即申请

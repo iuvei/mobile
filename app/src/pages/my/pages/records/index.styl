@@ -1,0 +1,160 @@
+*
+  box-sizing border-box
+
+.records-container
+  font-size 14px
+  width 100%
+  display flex
+  flex-direction column
+
+  .header-right
+    display flex
+    justify-content center
+    align-items center
+
+    .iconfont
+      font-size 24px
+
+  .title-menu
+    position relative
+    display flex
+    justify-content center
+    align-items center
+
+    &::after
+      content ''
+      width 0
+      height 0
+      border 8px solid transparent
+      border-top-color #000
+      margin-left 8px
+      transform translateY(4px)
+
+  .records-main-container
+    flex 1
+    position relative
+    overflow hidden
+
+    .scroller
+      display flex
+      flex-direction column
+      color #777
+
+      .records-summary-container
+        background-color #FFF
+        display flex
+        min-height 84px
+        margin-bottom 20px
+        padding 14px 0
+
+        .records-summary-item
+          flex 1
+          padding 0 15px
+          display flex
+          flex-direction column
+
+          &:not(:last-child)
+            border-right 1px solid #E9E9E9
+
+          .records-summary-item-row
+            flex 1
+            display flex
+            align-items center
+
+      .records-data-container
+        .records-data-list
+          .records-data-item
+            padding 15px
+            background-color #FFF
+            &:not(:last-of-type)
+              margin-bottom 10px
+
+            .transverse
+              display flex
+              line-height 20px
+              font-size 14px
+              margin 5px 0
+
+              .item-value
+                color #8e8e8e
+                flex 1
+                text-align right
+
+    .menu-container
+      position fixed
+      top 0
+      bottom 0
+      left 0
+      right 0
+      z-index 100
+      color #8E8E8E
+
+      .menu-bg
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+        background-color rgba(0, 0, 0, 0.45)
+
+      .menu-list
+        position absolute
+        bottom 0
+        background-color #ffffff
+        z-index 5
+        width 100%
+        padding 5px
+
+        .menu-item
+          height 50px
+          display flex
+          justify-content center
+          align-items center
+          border 1px solid #e9e9e9
+          border-radius 5px
+          margin 5px
+
+          &.active
+            color #FFF
+
+        .date-list
+          display flex
+          padding 5px
+          height 50px
+
+          .date-item
+            flex 1
+            height 40px
+            display flex
+            align-items center
+            justify-content center
+
+            &:first-child
+              border-radius 5px 0 0 5px
+
+            &:last-child
+              border-radius 0 5px 5px 0
+
+        .btn-item
+          padding 5px
+
+          .btn
+            width 100%
+            height 40px
+            border-radius 5px
+            background-color #ffffff
+
+            &.query
+              color #FFF
+
+.moveIn-enter-active, .moveIn-leave-active
+  transition transform 0.5s
+
+.moveIn-enter, .moveIn-leave-to /* .fade-leave-active below version 2.1.8 */
+  transform translateY(100%)
+
+.fadeIn-enter-active, .fadeIn-leave-active
+  transition opacity 0.5s
+
+.fadeIn-enter, .fadeIn-leave-to /* .fade-leave-active below version 2.1.8 */
+  opacity 0

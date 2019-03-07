@@ -1,0 +1,138 @@
+.withdrawal
+  van-nav-bar(
+    title="提现"
+    left-arrow
+    fixed
+    @click-left="()=>this.$router.go(-1)"
+    @click-right="()=>this.$router.push('/my/records')")
+
+  .container(ref="container")
+    .scroller
+      .pre-withdrawal(v-if="!nextStepShow")
+        van-cell-group.group1
+          van-cell(
+            title="选择银行："
+            is-link
+            :value="bank"
+            @click="actionsheetShow = true")
+          van-cell
+            template(slot="title")
+              div 提现金额(元)：
+              van-field.amount-input(
+                v-model="amount"
+                type="number"
+                clearable
+                :placeholder="'您的提款范围'+minAmount+'~'+maxAmount+'元'"
+                @input="inputAmount"
+              )
+          van-cell
+            .available-amount(slot="title")
+              div
+                .total 可提现余额(元)：{{totalAmount}}
+                .no-fee-times 剩余免手续费次数：{{noFeeTimes}}
+              div
+                van-button(
+                  size="small"
+                  @click="onClickFullAmount"
+                ) 全部提现
+        
+        van-cell-group.group2
+          van-field(
+            v-model="withdrawPwd"
+            label="提现密码："
+            type="password"
+            placeholder="请输入提现密码"
+            required
+            readonly
+            @click="showPasspop"
+          )
+        
+        ul.notice
+          li 流程说明：
+          li 第一步，输入提款金额与提款密码，并点击【预申请】。
+          li 第二步，待该笔预申请的状态变更为“待确认”时，即可提交申请出款。
+        
+        .pre-application-btn
+          .common-large-btn(@click="preApplication") 预申请
+          
+      .conf-withdrawal(v-if="nextStepShow")
+        ul
+          li.van-hairline--right
+            div 提现金额（元）
+            div {{$fmoney(Number(amount))}}
+          li.van-hairline--right
+            div 实收金额（元）
+            div {{$fmoney(Number(amount) - administrativeFee - procedureFee - couponFee, 2)}}
+          li
+            div 稽核结果
+            div.success(v-if="!!result") 通过
+            div.fail(v-else) 未通过
+        
+        van-cell-group.group3
+          van-cell(
+            title="扣除手续费"
+            :value="'-￥'+ procedureFee"
+          )
+          van-cell(
+            title="扣除行政费"
+            :value="'-￥'+ administrativeFee"
+          )
+          van-cell(
+            title="扣除存款优惠"
+            :value="'-￥'+ couponFee"
+          )
+          van-cell(
+            title="总扣除金额"
+            :value="'-￥'+ $fmoney(administrativeFee + procedureFee + couponFee)"
+          )
+        
+        van-collapse.audit-detail(v-model="collapseName")
+          van-collapse-item(title="稽核详情" name="1")
+            .no-audit-data(v-if="!auditList.length") 无稽核详情
+            template(v-else)
+              .appl-time 此次预申请时间：{{applyTime}}
+              table(
+                v-for="(item, index) in auditList"
+                :key="index")
+                tr
+                  th(colspan="2") 交易日期：{{item.start_time}} ~ {{item.end_time}}
+                tr
+                  td 存款金额：{{item.deposit_money}}
+                  td 优惠金额：{{item.coupon_money}}
+                tr
+                  td 常态打码要求：{{item.withdraw_bet}}
+                  td(v-if="!!item.is_no_check") 免稽核
+                  td.success(v-else-if="!!item.is_principal_pass") 通过
+                  td.fail(v-else) 未通过，扣除行政费{{item.deduct_admin_fee}}
+                tr
+                  td 优惠打码要求：{{item.withdraw_bet_coupon}}
+                  td(v-if="!!item.is_no_check") 免稽核
+                  td.success(v-else-if="!!item.is_coupon_pass") 通过
+                  td.fail(v-else) 未通过，扣除优惠{{item.deduct_coupon}}
+                tr(@click="toggleEffectBet(item)")
+                  td(colspan="2")
+                    span 有效投注：{{item.valid_bet}}
+                    van-icon.icon(:name="item.showEffec ? 'arrow-left' : 'arrow'")
+                transition(name="van-fade")
+                  tr(v-show="item.showEffec")
+                    td(colspan="2")
+                      div(v-for="item2,index2 in item.betdetail" :key="index2") {{item2.name}}:{{item2.validbet}}
+
+  .withdradal-btns(v-if="nextStepShow")
+    .btn.cancel(@click="nextStepShow = false") 取消
+    .btn.confirm(:class="{disabled}" @click="confirmWithdradal") 确定提现
+  
+  //- 填写-提现密码
+  passpop(:passpop="passpop")
+
+  //- 下拉弹框-选择银行卡
+  van-actionsheet(
+    v-model="actionsheetShow")
+    van-picker(
+      show-toolbar
+      :value-key="'name2'"
+      :columns="bankColumns"
+      @confirm="onConfirmBank"
+      @cancel="actionsheetShow = false"
+    )
+

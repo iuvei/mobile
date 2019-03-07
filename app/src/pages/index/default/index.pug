@@ -1,0 +1,37 @@
+.index-default-container
+  van-nav-bar(@click-left="onDownloadClick")
+    .logo(slot="title")
+      img(v-if="logo" :src="logo")
+    .header-left(slot="left" v-if="(isAndroid && appDownload.qrcode_android) || (isIOS && appDownload.qrcode_ios)")
+      i.iconfont(:class="[`icon-hc-${theme}-download`]")
+      .text APP
+    div(slot="right" v-if="isLogin")
+      div(@click="onLoginClick")
+        span 登录
+        span(v-if="registerSwitch") /注册
+  .container(ref="container")
+    van-swipe.banner(:autoplay="3000")
+      van-swipe-item(v-for="item, index in banners" :key="index")
+        a(v-if="item.link && item.link.length > 0" :href="item.link" target="_blank")
+          img(v-lazy="item.picture")
+        img(v-else v-lazy="item.picture")
+    Notice
+      .notice-icon(slot="icon")
+        i.iconfont(:class="[`icon-hc-${theme}-horn`]")
+        .notice-title 公告
+    .game-type(ref='gameTypes')
+      ul
+        li(v-for="item, index in games" v-if="item.is_display"  :key="index" :class="{ active: activeType === item.id }" @click="onTypeClick(item.id)")
+            p
+              label
+                i.iconfont(:class="[`icon-hc-${theme}-logo-${getType(item)}`]")
+                .title {{ item.name }}
+        li.slide
+    .game-list
+      van-row
+        van-col(:span="8" v-for="item,index in activeList" :key="index")
+          .game-item(@click="goto(item)")
+            .game-item-img-box(:style="{backgroundImage: `url(${item.icon})`}")
+            img.hot(src="../img/hot.png" v-if="!isTypeHot && item.hot")
+          .game-item-title {{ item.name }}
+      .is-bottom 已经到底了

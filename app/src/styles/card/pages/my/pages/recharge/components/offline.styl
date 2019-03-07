@@ -1,0 +1,58 @@
+.recharge-offline-container
+  color #777
+
+  .first-container
+    .scroller-box
+      .recharge-info-container
+        .info-input
+          input
+            padding-left 15px
+            background-color #F8F8F8
+            border-color #E6E6E6
+
+      .activities-container
+        .van-collapse
+          .van-collapse-item
+            .van-collapse-item__title
+              color #777
+
+      .recharge-tips
+        font-size 12px
+        line-height 17px
+        color $base-disabled-color
+
+    .submit-button
+      button
+        background-color $base-main-color
+
+  .next-container
+    background-color $base-bg-color
+
+    .scroller-box
+      .scroller
+        .recharge-amount
+          background-color #FFF
+
+        .recharge-account-info
+          background-color #FFF
+          .recharge-account-item
+            button.copy-btn
+              border 1px solid #ddd
+              color #9D70FF
+              
+          .recharge-account-tip
+            color $base-disabled-color
+
+    .submit-content
+      button
+        border 1px solid $base-main-color
+
+      button.cancel
+        color $base-main-font-color
+
+      button.submit
+        background-color $base-main-color
+
+        &.disabled
+          border-color $base-disabled-color
+          background-color $base-disabled-color

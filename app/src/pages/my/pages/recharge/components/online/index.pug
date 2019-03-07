@@ -1,0 +1,49 @@
+.recharge-online-container
+  .recharge-online-main
+    .scroller
+      .payment-method-container
+        .payment-method-title 充值金额
+          .deposit-money-input
+            input(v-model="depositMoneyInput" type="text" @input="inputMoney" :placeholder="`请输入充值金额，充值范围${depositMoneyMin}-${depositMoneyMax}元`")
+        .payment-method-title 支付选择
+        .payment-method-list
+          van-row(:gutter="6")
+            van-col(span="8" v-for="item in paymentMethods" :key="item.scene")
+              .payment-method-item(:class="{active: formData.scene === item.scene}" @click="paymentMethodChange(item)")
+                //- i.iconfont(:class="`icon-hc-${item.scene}`")
+                img(:src="formData.scene === item.scene? item.logo_hover:item.logo")
+                span {{item.name}}
+      .deposit-money-container
+        .deposit-money-list
+            van-radio-group.recharge-radio(v-for="item,index in moneyList" :key="index" v-model="formData.id")
+              van-cell-group
+                van-cell(clickable @click="selectMoney(item)")
+                  .add-solt(slot="title")
+                    .left
+                      i.iconfont(:class="`icon-hc-wx_wap`")
+                      span.passageway 通道{{index+1}}
+                    .right
+                      span.quota {{item.remark}}
+                  van-radio(:name="item.id")
+      .discount-active-container(v-if="discountActives.length")
+        van-collapse(v-model="discountActiveShow" accordion)
+          van-collapse-item(title="优惠活动" name="1")
+            van-cell(v-for="item in discountActives" :key="item.id")
+              div(slot="title")
+                span {{item.title}}
+                template(v-if="formData.active_id === item.id")
+                  span.gray &nbsp;可获得优惠
+                  span.red {{reapProfit.toFixed(2)}}
+                  span.gray 元
+              van-switch(slot="right-icon" :value="formData.active_id === item.id"  @input="() => selectDiscountActive(item)")
+      .recharge-tips
+        p 温馨提示：
+        p(v-html="data.remark")
+  .recharge-online-footer
+    .recharge-online-summary
+      div
+        span 充值
+        span.red {{formData.money}}
+        span 元
+        span &nbsp;(获得{{(Number(formData.money) + reapProfit).toFixed(2)}}元)
+    button(type="button" :class="{disabled}" @click="submit") 立即充值

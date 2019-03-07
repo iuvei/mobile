@@ -1,0 +1,206 @@
+.my
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+
+  .nwwest-roll
+    height 30px
+    overflow hidden
+
+  .roll-ul
+    list-style none
+    padding 0
+    margin 0
+
+  .nwwest-roll li
+    height 35px
+    line-height 35px
+
+  .anim
+    transition all 0.2s
+
+  .container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+    -webkit-transform scale(1)
+    transform scale(1)
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .user
+      background-size 375px 120px
+      background-repeat no-repeat
+      margin-bottom 20px
+
+      .img-refrash-1, .img-refrash
+        font-size 13px
+
+      span.refresh
+        width 20px
+        height 20px
+        display block
+        border-radius 50%
+        position relative
+
+        .fff
+          position absolute
+          left 0px
+          top 0px
+          width 6px
+          height 6px
+          border-radius 50%
+
+        &.rotate
+          pointer-events none
+          animation loading 0.8s ease-out infinite
+
+      .balance
+        margin-right 4px
+
+      .account
+        display flex
+        align-items center
+        padding-left 15px
+
+        .unlogin-img
+          width 50px
+          height 50px
+          background-size 100% 100%
+          background-repeat no-repeat
+          margin 22px 12px 21px 8px
+
+        .unlogin-text
+          font-size 18px
+          font-weight 400
+
+          span
+            padding 0 6px
+
+      .login-account
+        padding 14px 14px 18px 14px
+        position relative
+        max-height 155px
+
+        .top
+          display flex
+          align-items center
+
+          .img
+            width 30px
+            height 30px
+            border-radius 50%
+            overflow hidden
+            margin-left 4px
+            margin-right 14px
+
+            img
+              width 30px
+
+          span
+            font-weight normal
+            font-size 18px
+
+        .middle
+          display flex
+          justify-content space-between
+          padding 27px 0 18px
+          font-size 14px
+
+          span.small
+            display flex
+
+        .bottom
+          font-size 36px
+          height 36px
+
+        .children-wallet-wrap
+          position absolute
+          width 100%
+          z-index 3
+          left 0
+
+          .children-wa
+            max-height 300px
+            overflow auto
+            transition height 0.5s
+
+            .cell
+              height 40px
+              font-size 14px
+
+              img
+                width 13px
+                height 13px
+
+          .tip
+            margin 10px 0 0 0.266667rem
+            font-size 12px
+
+          .reflash-btn
+            padding 0.266667rem 0.32rem
+
+            .common-large-btn
+              width 100%
+
+      .btns
+        display flex
+        justify-content space-between
+        align-items center
+        padding 0px 16px 20px 15px
+
+        .btn-item
+          flex 1
+          margin-left 15px
+
+          &:nth-child(1)
+            margin-left 0
+
+        >>>
+          .van-button
+            border-radius 4px
+            width 106px
+            height 38px
+            line-height 40px
+            background transparent
+            font-size 16px
+
+    .group
+      margin-top 10px
+      
+      .iconfont
+        font-size 22px
+        margin-right 10px
+
+      .info
+        min-width 0.35rem
+        height 0.35rem
+        display flex
+        border-radius 0.18rem
+        color #fff
+        position absolute
+        right 8%
+        justify-content center
+        align-items center
+        top 0
+        bottom 0 
+        margin auto
+
+        i
+          font-style normal
+          -webkit-transform scale(0.8)
+          transform scale(0.8)
+          display inline-block
+          perspective-origin center
+
+    .loginout-btn
+      padding 20px 16px
+
+@keyframes loading
+  0%
+    transform rotate(0deg)
+
+  100%
+    transform rotate(360deg)

@@ -1,0 +1,53 @@
+.effective-orders-container
+  .header-right
+    color $base-link-btn-color
+  .effective-orders-main-container
+    background $base-bg-color
+    .effective-orders-table-container
+      table
+        thead
+          th
+            .cell
+              background #666
+              border-color $base-disabled-color
+        tbody
+          tr td .cell
+            background $base-content-bg-color
+            border-color $base-disabled-color
+            color $base-main-font-color
+            &.red
+              color $base-error-color
+
+            &.green
+              color $base-success-color
+          .summary td .cell
+            color $base-main-font-color
+            background #666
+
+    .menu-container
+      .menu-list
+        background-color $base-content-bg-color
+        .menu-item
+          border-color #666
+          color $base-main-font-color
+          &.active
+            background-color $base-main-color
+            color #33312B
+
+        .date-list
+          .date-item
+            background-color $base-bg-color
+
+            &.active
+              color $base-main-color
+
+        .btn-item
+          .btn
+            border 1px solid $base-main-color
+
+            &.query
+              background-color $base-main-color
+              color #33312B
+            &.cancel
+              background none
+              color $base-main-color

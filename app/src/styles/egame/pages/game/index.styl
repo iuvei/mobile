@@ -1,0 +1,58 @@
+@import './pages/recommend/index.styl'
+@import './pages/search/index.styl'
+
+.game-container
+  background-color $base-bg-color
+
+  [class*=van-hairline]
+    &:after
+      border-color transparent
+
+  .game-main
+    .scroller
+      .van-tabs__nav--line
+        background-color $base-bg-color-nav
+
+        .van-tab
+          background-color $base-bg-color-nav
+
+      .game-recommend-container
+        background-color $base-bg-color-content
+        .game-recommend-header
+          .title
+            color $base-text-color-title
+          .more
+            color $base-text-color-assistant
+        .game-recommend-content
+          .game-item
+            span
+              color $base-text-color-content-main
+            .game-logo
+              img.logo
+                box-shadow none
+
+      .van-tabs.child
+        background-color transparent
+
+        .van-tab
+          background-color $base-bg-color-content
+          color $base-text-color-input
+
+          &.van-tab--active
+            .van-ellipsis
+              color $base-text-color-button
+              background-color $base-bg-color-indicator
+	      
+        .van-tabs__nav--line
+          background-color $base-bg-color-content
+
+      .game-type-container
+        background-color $base-bg-color-content
+        .game-item
+          .game-logo
+            img
+              box-shadow none
+          span
+            color $base-text-color-content-main
+
+      

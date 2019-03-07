@@ -1,0 +1,70 @@
+.recharge-offline-container(:class="{next: nextStep}")
+  .first-container
+    .scroller-box
+      .scroller
+        .recharge-info-container
+          .info-title 充值金额
+          .info-input
+            input(v-model="formData.money" type="text" @input="inputMoney" :placeholder="`输入充值金额（最低${minDepositMoney}元，最高${maxDepositMoney}元）`")
+          van-cell-group
+            van-field(:value="selectAccountName" readonly :label="'收款账号'" is-link :placeholder="'请选择'" @click="selectBank")
+            van-field(v-model="formData.pay_name" :label="'存款人'" :placeholder="'请输入'" input-align="right" clearable)
+            van-field(v-model="formData.remark" :label="'存款说明'" :placeholder="'选填'" input-align="right" clearable)
+        .activities-container(v-if="discountActives.length")
+          van-collapse(v-model="discountActiveShow" accordion)
+            van-collapse-item(title="优惠活动" name="1")
+              van-cell(v-for="item,index in discountActives" :key="index")
+                div(slot="title")
+                  span {{item.title}}
+                  template(v-if="formData.active_id === item.id")
+                    span.gray &nbsp;可获得优惠
+                    span.red {{reapProfit.toFixed(2)}}
+                    span.gray 元
+                van-switch(slot="right-icon" :value="formData.active_id === item.id"  @input="() => selectDiscountActive(item)")
+        .recharge-tips
+          p 温馨提示：
+          p 为方便客服快速审核,平台会根据您填写的金额随机1～2位小数,转账时请按照最终显示金额进行充值。
+          p(v-html="data.remark")
+    .submit-button
+      .recharge-final
+        span 充值
+        span.red {{(Number(formData.money||0)+decimal).toFixed(2)}}
+        span 元（获得{{(Number(formData.money||0)+decimal+reapProfit).toFixed(2)}}元）
+      button(type="button" @click="toNextStep") 下一步
+  .next-container
+    .scroller-box
+      .scroller
+        .recharge-amount
+          span 充值金额：
+          span.blue {{(Number(formData.money||0)+decimal).toFixed(2)}}
+        .recharge-account-info(v-if="accounts[accountIndex]")
+          .recharge-account-item
+            .recharge-account-label 收款人
+            .recharge-account-value {{accounts[accountIndex].name}}
+            button.copy-btn(v-clipboard:copy="accounts[accountIndex].name", v-clipboard:success="onCopySuccess", v-clipboard:error="onCopyError") 复制
+          .recharge-account-item
+            .recharge-account-label 收款账号
+            .recharge-account-value {{accounts[accountIndex].card}}
+            button.copy-btn(v-clipboard:copy="accounts[accountIndex].card", v-clipboard:success="onCopySuccess", v-clipboard:error="onCopyError") 复制
+          .recharge-account-item
+            .recharge-account-label 收款方式
+            .recharge-account-value {{accounts[accountIndex].bank_name}}
+          .recharge-account-item
+            .recharge-account-label 收款支行
+            .recharge-account-value {{accounts[accountIndex].address}}
+        
+        .recharge-account-info(v-if="resultQrcode")
+          .recharge-account-title 或扫码转账
+          .recharge-account-img
+            img(:src="resultQrcode")
+            p.recharge-account-tip (长按二维码保存)
+        
+        .recharge-tips
+          p 温馨提示：
+          p 为方便客服快速审核,平台会根据您填写的金额随机1～2位小数,转账时请按照最终显示金额进行充值。
+          p(v-html="data.remark")
+    .submit-content
+      button.cancel(type="button" @click="nextStep = false") 取消
+      button.submit(type="button" :class="{disabled}" @click="submit") 已成功转账，提交回执
+  van-popup(v-model="isSelectBank" position="bottom" :overlay="true")
+    van-picker(ref="accounts" show-toolbar :columns="accounts" :title="'请选择账号'" :value-key="'bank_label'" @confirm="selectBankConfirm" @cancel="selectBankCancel")

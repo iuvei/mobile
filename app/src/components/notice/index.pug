@@ -1,0 +1,16 @@
+div
+  .notice-container(v-show="notices.length")
+    .notice-content(@click="getPopupNotice")
+      slot(name="icon")
+        .iconfont(:class="[`icon-hc-${noticeImg}-horn`]")
+      .notice-box(ref="noticeBox")
+        .notice-scroller(ref="scroller" :style="scrollerStyle") {{notices[activeIndex]}}
+  //- 弹框
+  hc-dialog#notice-list(
+    v-model="showNoticeList" title="公告" v-if="noticeList.length"
+    :show-confirm-button="!token" cancelButtonText="不再显示" confirmButtonText="我知道了"
+    @close="close" @ok="showNoticeList = false"
+  )
+    van-cell-group
+      template(v-for="(item, index) in noticeList")
+        van-cell(:title="item.title" @click="clickNoticeDetail(item)")

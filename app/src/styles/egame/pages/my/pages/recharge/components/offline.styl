@@ -1,0 +1,103 @@
+.recharge-offline-container
+  .first-container
+    .scroller-box
+      .recharge-info-container
+        background $base-bg-color-content
+
+        .info-title
+          color $base-text-color-title
+
+        .info-input
+          &:after
+            border-color $base-bg-color-divide
+          input
+            background $base-bg-color-input
+            border-color #2C224D
+            color $base-text-color-input
+
+            &:focus
+              background-color $base-bg-color
+              border-color #2C224D
+
+      .activities-container
+        .van-collapse
+          &:after
+            border 1px solid $base-bg-color-divide
+            color $base-text-color-title
+
+          .van-collapse-item
+            .van-cell
+              background $base-bg-color-content
+              color $base-text-color-content-sub
+
+              &:not(:last-child)::after
+                border 1px solid $base-bg-color-divide
+
+            .van-collapse-item__wrapper
+              .van-collapse-item__content
+                background $base-bg-color
+                .van-cell__title
+                  color $base-text-color-title
+
+
+    .submit-button
+      background-color $base-bg-color-content
+      .recharge-final
+        color $base-text-color-title
+
+      button
+        border none
+        background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+        color #333
+
+    .gray
+      color $base-text-color-content-sub
+    .red
+      color #FF5235
+
+  .next-container
+    background-color $base-bg-color
+
+    .scroller-box
+      .scroller
+        .recharge-amount
+          background-color $base-bg-color-content
+          color $base-text-color-title
+
+        .recharge-account-info
+          background-color $base-bg-color-content
+          .recharge-account-item
+            border-color $base-bg-color-divide
+            .recharge-account-label
+              color $base-text-color-title
+            .recharge-account-value
+              color $base-text-color-content-main
+            button.copy-btn
+              border 1px solid $base-text-color-assistant
+              color $base-text-color-assistant
+              
+          .recharge-account-title
+            color $base-text-color-title
+
+          .recharge-account-tip
+            color $base-text-color-content-main
+            
+        .recharge-tips
+          color $base-text-color-content-sub
+      
+    .submit-content
+      background-color $base-bg-color-content
+
+      button.cancel
+        color $base-text-color-button-cancle
+        border 1px solid $base-text-color-button-cancle
+        background-color transparent
+
+      button.submit
+        border none
+        background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+        color #333
+
+        &.disabled
+          border-color $base-bg-color-button-disabled
+          background $base-bg-color-button-disabled

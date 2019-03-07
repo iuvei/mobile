@@ -1,0 +1,32 @@
+hc-dialog.exchange-dialog(v-model="exchangeDialog.show" title="快速转账" :show-confirm-button="false" @close="updateExchangeDialog({show:false})")
+  .dialog-body
+    .item
+      .label 主账户
+      .value
+        span.red ￥{{$fmoney(mainWallet,2)}}
+        span 元
+        van-button.recycl-btn(@click="oneRecycle" :disabled="btnAble") 一键回收
+    .item
+      .label 转入游戏
+      .value
+        span.red ￥{{$fmoney(exchangeDialog.childrenBalance,2)}}
+        span 元
+        span.name ({{exchangeDialog.childrenName}})
+    .item
+      .label 转入金额
+      .value
+        van-field.field(
+          v-model="childWallet.transfer"
+          clearable
+          type="number"
+          placeholder="金额"
+          @input="enterMoney"
+        )
+    ul.fast
+      li(v-for="i,j in moneyArr" :key="j")
+        van-button.btn(@click="fastMoney(i)" :class="{blue:j===moneyArr.length-1}") {{i}}
+    .tip 注：转入或转出子钱包，只支持整元的转账金额
+  .dialog-footer
+    van-button.btn(@click="gotoContent") 直接进入游戏
+    van-button.btn(@click="gotoRecharge") 去存款
+    van-button.btn.blue(@click="confirmExchange" :disabled="btnAble") 确认转换

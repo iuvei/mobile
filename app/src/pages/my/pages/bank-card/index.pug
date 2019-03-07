@@ -1,0 +1,14 @@
+.bank-card-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback" :class="{'active-bar':bankCards.length}")
+  .bank-card-main-container
+    .scroller
+      .bank-card-item(v-for="item in bankCards" @click="() => isUnbind(item)")
+        img.bank-icon(slot="icon" :src="getBankIcon(item)")
+        div.bank-title(slot="title") {{getBankName(item)}}({{item.card.slice(-4)}})
+        van-icon.arrow(name="arrow" size="0.4rem")
+      .bank-card-button-container
+        .common-large-btn(:loading="isLoading" @click="gotoAdd") 添加银行卡
+      .bank-card-tips-container
+        p 注意：
+        p(v-for="(p,i) in prompt") {{`${i+1}. ${p}`}}
+  passpop(:passpop="passpop")

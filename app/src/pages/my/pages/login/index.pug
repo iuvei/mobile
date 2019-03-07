@@ -1,0 +1,84 @@
+.login
+  van-nav-bar.navbar(
+    left-arrow
+    @click-left="()=>this.$router.push('/')"
+  )
+  .logo
+    img(v-if="logo" :src="logo")
+  van-tabs.login-tabs(
+    v-model="tabActive"
+    @click="tabToggle"
+  )
+    van-tab(title="账号密码登录")
+      van-cell-group.group-form
+        van-field(
+          v-model="username"
+          placeholder="请输入用户名"
+          clearable
+          :error-message="errorUsername"
+        )
+        van-field(
+          v-model="password"
+          :type="inputType"
+          :icon="visiblePwd"
+          @click-icon="toggleVisiblePwd"
+          placeholder="请输入登录密码"
+          clearable
+          :error-message="errorPassword"
+        )
+        van-field(
+          v-model="picCode"
+          v-if="isShowPicCode"
+          placeholder="请输入验证码"
+          clearable
+          :error-message="errorPicCode")
+          .code(slot="button")
+            img(
+              :src="vCodeData.img"
+              @click="getPicCode"
+            )
+        van-field(v-show="false")
+      .remmber-forget
+        van-checkbox(
+          v-model="checked") 记住我
+          .iconfont.icon-hc-tick(
+            slot="icon"
+            slot-scope="props"
+            :class="props.checked ? 'active' : 'normal'")
+        .forget-pwd(@click="$router.push('/my/find-password')") 忘记密码？
+
+    van-tab(title="免密快捷登录")
+      van-cell-group.group-form.top
+        van-field(
+          v-model="username2"
+          placeholder="请输入手机号／邮箱"
+          clearable
+          :error-message="errorUsername2"
+        )
+        van-field(
+          v-model="vcode"
+          placeholder="请输入验证码"
+          clearable
+          :error-message="errorVcode")
+          van-button(
+            slot="button"
+            size="small"
+            :disabled="disabledCodeBtn"
+            @click="getVcode()"
+          ) {{btnText}}
+        van-field(v-show="false")
+
+
+
+  
+  .login-btn
+    .common-large-btn(@click="onClickLogin") 登录
+
+  .freeplay-register
+    .freeplay(@click="$router.push('/trial')" v-if="isFree==='true'") 免费试玩
+    .register(v-if="registerSwitch")
+      span 没有账号？
+      router-link(tag="span" to="/register") 马上注册
+
+  //- .steam-login(v-if="steamSwitch")
+  //-   span(@click="onClickSteam") steam账号登录

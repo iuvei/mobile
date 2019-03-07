@@ -1,0 +1,54 @@
+.recharge-online-container
+  .recharge-online-main
+    .payment-method-container
+      background $base-content-bg-color
+      .payment-method-title
+        color $base-font-color
+        .deposit-money-input
+          input
+            background $base-content-input-bg-color
+            border-color $base-bg-color-divide
+            color $base-font-color
+            &:focus
+              background-color $base-content-input-bg-color
+              border-color #555
+          &:after
+            border-color $base-bg-color-divide
+      .payment-method-list
+        .payment-method-item
+          color $base-main-font-color
+          border-color #666
+
+          &.active
+            color #33312B
+            background-color $base-main-color
+
+    .deposit-money-container
+      background $base-content-bg-color
+      .deposit-money-list
+        .deposit-money-item
+          color $base-main-font-color
+          border-color #666
+
+          &.active
+            color #33312B
+            background-color $base-main-color
+
+      .deposit-money-input
+        input
+          background $base-content-input-bg-color
+          border-color $base-bg-color-divide
+          color $base-font-color
+          &:focus
+            background-color $base-content-input-bg-color
+            border-color #555
+
+  .recharge-online-footer
+    background $base-content-bg-color
+    button
+      background-color $base-main-color
+      color #33312B
+
+      &.disabled
+        background-color $base-disabled-color
+        border-color $base-disabled-color

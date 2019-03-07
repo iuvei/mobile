@@ -1,0 +1,32 @@
+.game-search-container
+  .game-search-header
+    .game-search-icon
+      i.iconfont.icon-hc-query
+    .game-search-input
+      input(v-model="searchKey" placeholder="请输入游戏名称")
+    .game-search-cancel(@click="goback") 取消
+  .game-recommend-container(v-show="!searchKey && recommends.length")
+    .game-recommend-header 推荐游戏
+    van-swipe
+      van-swipe-item(v-for="items,index in splitRecommend" :key="index")
+        .game-items
+          van-row
+            van-col(:span="6" v-for="item,i in items" :key="i")
+              .game-item
+                .game-logo(@click="goto(item)")
+                  img.logo(:src="item.img_url")
+                span {{cutStrForNum(item.game_name)}}
+  .game-search-content(v-show="searchKey")
+    .game-search-loading(v-if="loading")
+      van-loading(type="spinner")
+      span 正在加载...
+    .game-search-datas.game-items(v-else)
+      .game-items
+        van-row(v-for="items,i in filterSearchDatas" :key="i")
+          van-col(:span="6" v-for="item,j in items" :key="j")
+            .game-item
+              .game-logo(@click="goto(item)")
+                img.logo(:src="item.img_url")
+                .star(v-if="!item.is_favorite" @click="(e) => addfavorite(e, item)")
+                .star-active(v-if="item.is_favorite" @click="(e) => removefavorite(e, item)")
+              span {{cutStrForNum(item.name)}}

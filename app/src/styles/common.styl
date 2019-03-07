@@ -1,0 +1,117 @@
+@import './iconfont/iconfont.css'
+
+#app .home section>.no-scroll>div
+  overflow hidden !important
+
+/*
+ * 大按钮（可用于登录、注册等）
+ */
+.common-large-btn
+  line-height 40px
+  height 40px
+  text-align center
+  font-size 16px
+  border-radius 2px
+  border none
+
+/* 没有数据的样式-个人中心的有效投注等多个页面会用到 */
+.no-data
+  text-align center
+  margin-top 50px
+  font-size 12px
+
+  .iconfont
+    font-size 74px
+    color #e4e4e4
+
+  div
+    margin-top 13px
+
+#app
+  // vant
+  .van-collapse
+    .van-collapse-item
+      .van-cell
+        padding 10px 15px
+
+  .van-cell
+    align-items center
+    line-height 20px
+    padding 0.52rem 0.4rem
+
+    &:not(:last-child)::after
+      left 16px
+
+  .van-field__control
+    // color #000
+
+  // 所有页头底色nav-bar
+  .van-nav-bar
+    color #777
+
+    .van-nav-bar__right
+      display flex
+
+    .van-icon
+      color #777
+      // 修复头部栏左边返回按钮位置不对
+      vertical-align unset
+
+  // 单元格van-cell的is-link属性右侧显示箭头的颜色更改
+  .van-cell__right-icon
+    color #7B7C8C
+
+  .van-tabs__wrap
+    .van-tab
+      color #8e8e8e
+      flex 1 0 22.5%
+
+    .van-tabs__line
+      height 4px
+      border-radius 0
+
+    &::after
+      // border 0
+
+  // info
+  .van-info
+    top -0.2em
+
+  .van-swipe__track
+    height 4.213333rem
+
+  .van-picker__cancel
+    color #777777
+
+  .van-password-input__security
+    height 49px
+
+  .security-passpop
+    .van-password-input
+      padding-bottom 46px
+    
+  .van-key--gray
+    background-color #f5f5f5!important
+
+  .van-key
+    font-size 14px
+  
+  .van-key--delete 
+    font-size 0
+
+  ul.van-pagination
+    padding 20px 13px
+    box-sizing content-box
+    li
+      min-width 92px
+      height 27px
+      line-height 27px
+      background none
+
+  .van-picker
+    .van-picker__toolbar
+      height 55px
+      line-height 55px
+
+.van-toast--default
+  padding 0.2rem !important

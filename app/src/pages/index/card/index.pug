@@ -1,0 +1,72 @@
+.index-card-container
+  van-nav-bar(@click-left="onDownloadClick")
+    .logo(slot="title")
+      img(v-if="logo" :src="logo")
+    .header-left(slot="left" v-if="(isAndroid && appDownload.qrcode_android) || (isIOS && appDownload.qrcode_ios)")
+      i.iconfont(:class="[`icon-hc-${theme}-download`]")
+      .text APP
+    .header-right(slot="right" v-if="isLogin")
+      div(@click="onLoginClick")
+        span 登录
+        span(v-if="registerSwitch") /注册
+  .container(ref="container")
+    van-swipe.banner(:autoplay="3000")
+      van-swipe-item(v-for="item, index in banners" :key="index")
+        a(v-if="item.link && item.link.length > 0" :href="item.link" target="_blank")
+          img(v-lazy="item.picture")
+        img(v-else v-lazy="item.picture")
+    Notice
+    .index-card-quick-access-container
+      router-link.index-card-quick-access-item(to="/my/recharge")
+        img(src="../img/card/recharge.png")
+        span 在线充值
+      router-link.index-card-quick-access-item(to="/my/withdrawal")
+        img(src="../img/card/withdrawal.png")
+        span 申请提款
+      router-link.index-card-quick-access-item(to="/exchange")
+        img(src="../img/card/exchange.png")
+        span 额度转换
+      .index-card-quick-access-item(@click="openService")
+        img(src="../img/card/service.png")
+        span 在线客服
+
+    .index-card-recommend-container(v-if="recommends.length")
+      .index-card-recommend-main
+        .index-card-recommend-mian-left
+          .index-card-recommend-item(@click="toCardGame(recommends[0])" :title="recommends[0].game_name")
+            img(:src="recommends[0].img_url")
+        .index-card-recommend-mian-right
+          .index-card-recommend-item(@click="toCardGame(recommends[index+1])" v-for="item,index in 4" v-if="recommends[index+1]" :key="index" :title="recommends[index+1].game_name")
+            img(:src="recommends[index+1].img_url")
+      .index-card-recommend-auxiliary(v-if="recommends.length > 5")
+        .index-card-recommend-item(@click="toCardGame(recommends[index+5])" v-for="item,index in 4" v-if="recommends[index+5]" :key="index" :title="recommends[index+5].game_name")
+          img(:src="recommends[index+5].img_url")
+
+    .index-card-categorys-container(v-if="otherGame.length")
+      .index-card-categorys-title 游戏分类
+      .index-card-categorys-content
+        template(v-for="item,index in otherGame" v-if="item.route")
+          router-link.index-card-category-item(:to="item.route")
+            .index-card-category-icon(:class="item.className")
+            p {{item.name}}
+        .index-card-category-item(v-else)
+          .index-card-category-icon(:class="item.className")
+          p {{item.name}}
+
+    .index-card-hots-container(v-if="hotGame.length")
+      .index-card-hots-title 热门推荐
+      .index-card-hots-content
+        .index-card-hot-item(v-for="item,index in hotGame" :key="index" @click="goto(item)")
+          img(:src="getImgSrc(item)")
+          p {{item.name}}
+
+    .index-card-winner-list-container
+      .index-card-winner-list-title 最新中奖榜
+      .index-card-winner-list-content
+        .scroller(ref="scroller" :style="scrollerStyle")
+          .index-card-winner-item(v-for="item,index in winnerList" :key="index")
+            .index-card-winner-info {{item.username}}
+            .index-card-winner-purchase {{getPartnerFullName(item)}}
+            .index-card-winner-harvest
+              img(src="../img/card/winning.png")
+              span 中奖{{item.prize}}元

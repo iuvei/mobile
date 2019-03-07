@@ -1,0 +1,38 @@
+.sales-container
+  .sales-main-container
+    .van-tabs__wrap
+      .van-tabs__nav
+        background-color $base-bg-color-nav
+        .van-tab
+          background-color transparent
+    .van-cell-group
+      &:after
+        display none
+      .van-cell
+        background-color $base-bg-color-content
+        .van-cell__title
+          color $base-text-color-content-main
+        .van-cell__value
+          color $base-text-color-content-sub
+        .van-icon
+          color $base-text-color-content-sub
+        .custom-date-query
+          button
+            color $base-text-color-assistant
+            border 1px solid $base-text-color-assistant
+    .sales-data-container
+      background-color $base-bg-color
+      .sales-data-list
+        .sales-data-item
+          background-color $base-bg-color-content
+          border-bottom-color $base-bg-color
+          .transverse
+            .item-label
+              color $base-text-color-content-main
+            .item-value
+              color $base-text-color-content-sub
+
+    // .custom-date-container
+    //   .custom-date-query button
+    //     color $base-main-font-color
+    //     border 1px solid $base-main-color

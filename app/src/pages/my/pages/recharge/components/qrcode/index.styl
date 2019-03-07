@@ -1,0 +1,85 @@
+*
+  box-sizing border-box
+  font-size 14px
+
+.recharge-qrcode-container
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  background-color #FFF
+  z-index 100
+  display flex
+  flex-direction column
+
+  .recharge-qrcode-main-container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .scroller
+      display flex
+      flex-direction column
+
+      .recharge-qrcode-title
+        font-size 16px
+        padding 18px 15px
+        min-height 54px
+        color #777
+        background-color #fff
+
+      .recharge-qrcode-main
+        padding 9px 15px 9px
+        flex 1
+        line-height 18px
+        color #BBB
+        font-size 12px
+
+        .recharge-qrcode-info
+          display flex
+          align-items center
+
+          button.copy
+            width 50px
+            height 28px
+            border-radius 14px
+            background-color transparent
+            border 1px solid #dddddd
+            outline none
+            font-size 12px
+            margin-left 15px
+
+        .recharge-qrcode-content
+          padding-top 42px
+          display flex
+          justify-content center
+          .img
+            width 167px
+            height 167px
+
+        .recharge-qrcode-tips
+          text-align center
+
+        .recharge-qrcode-button
+          margin-top 15px
+          text-align center
+
+          button
+            border none
+            line-height 40px
+            color #ffffff
+            width 167px
+            height 40px
+            border-radius 3px
+
+        .recharge-qrcode-scan-steps
+          margin-top 84px
+
+          p
+            line-height 18px
+            color #BBB
+            font-size 12px

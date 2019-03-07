@@ -1,0 +1,67 @@
+.records-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+    .header-right(slot="right" @click="menuToggle")
+      span {{rightTitle}}
+      i.iconfont.icon-hc-filter
+  .records-main-container(ref="container")
+    .scroller
+      .records-summary-container
+        .records-summary-item
+          .records-summary-item-row 我的钱包：
+          .records-summary-item-row
+            span(:class="{green: summary.balance > 0}") {{$fmoney(summary.balance, 2)}}&nbsp;
+            span 元
+        .records-summary-item
+          .records-summary-item-row
+            span 总收入：
+            span(:class="{green: summary.balance > 0}") {{$fmoney(summary.income, 2)}}&nbsp;
+            span 元
+          .records-summary-item-row
+            span 总支出：
+            span(:class="{green: summary.balance > 0}") {{$fmoney(summary.pay, 2)}}&nbsp;
+            span 元
+      .records-data-container(ref="datas")
+        .records-data-list
+          .no-data(v-if="datas.length === 0")
+            i.iconfont.icon-hc-no-data
+            div 没有数据
+          template(v-else)
+            .records-data-item(v-for="item in datas" :key="item.id")
+              van-row
+                van-col.transverse(:span="24")
+                  .item-label 订单号：
+                  .item-value {{item.order_number}}
+                van-col.transverse(:span="24")
+                  .item-label 类型：
+                  .item-value {{item.type}}
+                van-col.transverse(:span="24")
+                  .item-label 交易金额：
+                  .item-value {{$fmoney(item.deal_money, 2)}}({{item.amount > 0 ? '+' : ''}}{{$fmoney(item.coupon_amount, 2)}})
+                van-col.transverse(:span="24")
+                  .item-label 钱包余额：
+                  .item-value {{$fmoney(item.balance, 2)}}
+                van-col.transverse(:span="24")
+                  .item-label 时间：
+                  .item-value {{item.created_at}}
+                van-col.transverse(:span="24")
+                  .item-label 备注：
+                  .item-value {{item.remark}}
+
+          van-pagination(v-if="datas.length !== 0" v-model="pageInfo.current" :total-items="pageInfo.total" :items-per-page="pageInfo.size" @change="doQuery" mode="simple")
+    .menu-container(v-if="menuIsShow")
+      transition(name="fadeIn")
+        .menu-bg(@click="menuToggle" v-show="menuBgIsShow")
+      transition(name="moveIn")
+        .menu-list(@click.stop="" v-show="menuIsPop")
+          van-row
+            van-col(:span="6" v-for="(item, index) in menu" :key="index")
+              .menu-item(:class="{active: menuActive.menuIndex === index}" @click="menuActive.menuIndex = index") {{item.name}}
+          .date-list
+            .date-item(v-for="(item, index) in queryDateList" :key="index" :class="{active: menuActive.queryDateIndex === index}" @click="menuActive.queryDateIndex = index") {{item.name}}
+          van-row
+            van-col(:span="12")
+              .btn-item
+                button.btn.cancel(type="button" @click="menuToggle") 取消
+            van-col(:span="12")
+              .btn-item
+                button.btn.query(type="button" @click="menuSubmit") 查询

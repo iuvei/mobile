@@ -1,0 +1,77 @@
+.index-egame-container
+  //- Header
+  van-nav-bar(@click-left="onDownloadClick")
+    .logo(slot="title")
+      img(v-if="logo" :src="logo")
+    .header-left(slot="left" v-if="(isAndroid && appDownload.qrcode_android) || (isIOS && appDownload.qrcode_ios)")
+      span.iconfont(:class="[`icon-hc-${theme}-download`]")
+      .text APP
+    div(slot="right" v-if="isLogin")
+      div(@click="onLoginClick")
+        span 登录
+        span(v-if="registerSwitch") /注册
+  //- 内容部分
+  .container(ref="container")
+    //- Banner
+    van-swipe.banner(:autoplay="3000")
+      van-swipe-item(v-for="item, index in banners" :key="index")
+        a(v-if="item.link && item.link.length > 0" :href="item.link" target="_blank")
+          img(v-lazy="item.picture")
+        img(v-else v-lazy="item.picture")
+    //- 公告组件
+    .notice-wrap
+      Notice
+    //- 充值提现
+    .index-egame-quick-access-container
+      router-link.index-egame-quick-access-item(to="/my/recharge")
+        img(src="../img/egame/recharge.png")
+        span 在线充值
+      router-link.index-egame-quick-access-item(to="/my/withdrawal")
+        img(src="../img/egame/withdrawal.png")
+        span 申请提款
+      router-link.index-egame-quick-access-item(to="/exchange")
+        img(src="../img/egame/exchange.png")
+        span 额度转换
+      .index-egame-quick-access-item(@click="openService")
+        img(src="../img/egame/service.png")
+        span 在线客服
+    //- 推荐游戏
+    .index-egame-recommend-container(v-if="recommends.length")
+      .index-egame-recommend-content
+        .index-egame-hot-item(v-for="item in recommends" :key="item.game_code" @click="toOneGame(item)" :style="{backgroundImage: `url(${item.img_url})`}")
+          img(src="../img/egame/index-recommend-outline.png" v-if="!item.isMore")
+    //- 超级奖池
+    .index-egame-reservior-container
+      .bg-container
+        .reword {{ reword }}
+    //- 游戏分类
+    .index-egame-categorys-container(v-if="otherGame.length")
+      .index-egame-categorys-title 游戏分类
+      .index-egame-categorys-content
+        template(v-for="item,index in otherGame" v-if="item.route")
+          router-link.index-egame-category-item(:to="item.route")
+            .index-egame-category-icon(:class="item.className")
+            .words
+              p {{item.name}}
+              p.sub {{item.englishName}}
+        .index-egame-category-item(v-else)
+          .index-egame-category-icon(:class="item.className")
+          p {{item.name}}
+    //- 热门推荐
+    .index-egame-hots-container(v-if="hotGame.length")
+      .index-egame-hots-title 热门推荐
+      .index-egame-hots-content
+        .index-egame-hot-item(v-for="item,index in hotGame" :key="index" @click="goto(item)")
+          img(:src="getImgSrc(item)")
+          p {{item.name}}
+    //- 最新中奖排行
+    .index-egame-winner-list-container
+      .index-egame-winner-list-title 最新中奖榜
+      .index-egame-winner-list-content
+        .scroller(ref="scroller" :style="scrollerStyle")
+          .index-egame-winner-item(v-for="item,index in winnerList" :key="index")
+            .index-egame-winner-info {{item.username}}
+            .index-egame-winner-purchase {{getPartnerFullName(item)}}
+            .index-egame-winner-harvest
+              img(src="../img/card/winning.png")
+              span 中奖{{item.prize}}元

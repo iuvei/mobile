@@ -1,0 +1,61 @@
+.withdrawal
+  background $base-bg-color
+  color $base-font-color
+
+  .container
+    .pre-withdrawal
+      .group1
+        .van-cell:not(:last-child)::after
+          border none
+        .amount-input
+          background $base-bg-color
+          border 1px solid $base-bg-color-divide
+        .available-amount
+          div
+            .van-button
+              color $base-main-font-color
+
+    .conf-withdrawal
+      ul
+        background $base-content-bg-color
+
+        li
+          .success
+            color $base-success-color
+
+          .fail
+            color $base-error-color
+
+      .group3
+        .van-cell
+          padding 2px 14px
+          .van-cell__value
+            span
+              color $base-error-color
+
+      .audit-detail
+        background $base-content-bg-color
+        
+        .no-audit-data
+          color $base-disabled-color
+
+        table
+          tr
+            .success
+              color $base-success-color
+
+            .fail
+              color $base-error-color
+
+  .withdradal-btns
+    background $base-content-bg-color
+    .cancel
+      color $base-main-color
+      border 1px solid $base-main-color
+
+    .confirm
+      background $base-main-color
+      color #fff
+
+      &.disabled
+        background-color $base-disabled-color

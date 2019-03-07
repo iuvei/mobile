@@ -1,0 +1,92 @@
+.recharge-online-container
+  .recharge-online-main
+    .payment-method-container
+      background $base-bg-color-content
+
+      .payment-method-title
+        color $base-text-color-title
+
+      .payment-method-list
+        .payment-method-item
+          color $base-text-color-content-main
+          background $base-bg-color-input
+          border-color #2C224D
+
+          &.active
+            background-color $base-bg-color-indicator
+            color #000
+            .iconfont
+              &.icon-hc-wx_wap
+                color #06CB0D
+              &.icon-hc-alipay_wap
+                color #1296DB
+              &.icon-hc-qq_wap
+                color #DB2921
+              &.icon-hc-jingdong_wap
+                color #F74E47
+
+    .deposit-money-container
+      background $base-bg-color-content
+
+      .deposit-money-list
+        .deposit-money-item
+          color $base-text-color-content-main
+          background $base-bg-color-input
+          border-color #2C224D
+
+          &.active
+            background-color $base-bg-color-indicator
+            color #000
+
+    .deposit-money-input
+      &:after
+        border-color $base-bg-color-divide
+      input
+        background $base-bg-color-input
+        border-color #2C224D
+        color $base-text-color-input
+
+        &:focus
+          background-color $base-bg-color
+          border-color #2C224D
+
+    .discount-active-container
+      .van-collapse
+        &:after
+          border 1px solid $base-bg-color-divide
+          color $base-text-color-title
+
+        .van-collapse-item
+          .van-cell
+            background $base-bg-color-content
+            color $base-text-color-content-sub
+
+            &:not(:last-child)::after
+              border 1px solid $base-bg-color-divide
+
+          .van-collapse-item__wrapper
+            .van-collapse-item__content
+              background $base-bg-color
+              .van-cell__title
+                color $base-text-color-title
+
+    .gray
+      color $base-text-color-content-sub
+    .red
+      color #FF5235
+
+  .recharge-online-footer
+    background-color $base-bg-color-content
+    color $base-text-color-content-main
+    .recharge-online-summary
+      color $base-text-color-title
+      .red
+        color #FF5235
+
+    button
+      border none
+      background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+      color #333
+
+      &.disabled
+        background $base-bg-color-button-disabled

@@ -1,0 +1,81 @@
+.index-live-container
+  //- Header
+  van-nav-bar(@click-left="onDownloadClick")
+    .logo(slot="title")
+      img(v-if="logo" :src="logo")
+    .header-left(slot="left" v-if="(isAndroid && appDownload.qrcode_android) || (isIOS && appDownload.qrcode_ios)")
+      span.iconfont.icon-hc-egame-download
+      .text APP
+    .header-right(slot="right" v-if="isLogin")
+      span(@click="onLoginClick") 登录
+      template(v-if="registerSwitch")
+        span  /
+        span(@click="onRegisterClick") 注册
+  //- 内容部分
+  .container(ref="container")
+    //- Banner
+    van-swipe.banner(:autoplay="3000")
+      van-swipe-item(v-for="item, index in banners" :key="index")
+        a(v-if="item.link && item.link.length > 0" :href="item.link" target="_blank")
+          img(v-lazy="item.picture")
+        img(v-else v-lazy="item.picture")
+    //- 公告组件
+    .notice-wrap
+      Notice
+    //- 充值提现
+    .index-live-quick-access-container
+      router-link.index-live-quick-access-item(to="/my/recharge")
+        img(src="../img/live/recharge.svg")
+        span 在线充值
+      router-link.index-live-quick-access-item(to="/my/withdrawal")
+        img(src="../img/live/withdrawal.svg")
+        span 申请提款
+      router-link.index-live-quick-access-item(to="/exchange")
+        img(src="../img/live/exchange.svg")
+        span 额度转换
+      .index-live-quick-access-item(@click="openService")
+        img(src="../img/live/service.svg")
+        span 在线客服
+
+    //- 游戏分类
+    .index-live-categorys-container(v-if="otherGame.length")
+      template(v-for="arr,index in otherGame")
+        template(v-if="index===0")
+          .big-wrap
+            template(v-for="item,i in arr")
+              template(v-if="i===0")
+                router-link.big(:class="item.className" v-if="item.is_display" :to="item.route")
+                .big.disable(:class="item.className" v-else)
+              template(v-else)
+                router-link.medium(:class="item.className"  :key="i" v-if="item.route" :to="item.route")
+                .medium(:class="item.className"  :key="i" v-else)
+        template(v-else-if="index===1")
+          .small-wrap
+            template(v-for="item,i in arr")
+              router-link.small(v-if="item.route" :class="item.className" :key="i" :to="item.route")
+              .small(v-else :class="item.className" :key="i")
+
+    //- 热门推荐
+    .index-live-hots-container(v-if="hotGame.length")
+      .index-live-hots-title 
+        span.iconfont.icon-hc-live-index-hot
+        span 热门推荐
+      .index-live-hots-content
+        .index-live-hot-item(v-for="item,index in hotGame" :key="index" @click="goto(item)")
+          .img-wrap
+            img(:src="getImgSrc(item)")
+          p {{item.name}}
+
+    //- 最新中奖排行
+    .index-live-winner-list-container
+      .index-live-winner-list-title 
+        span.iconfont.icon-hc-live-index-win
+        span 最新中奖榜
+      .index-live-winner-list-content
+        .scroller(ref="scroller" :style="scrollerStyle")
+          .index-live-winner-item(v-for="item,index in winnerList" :key="index")
+            .index-live-winner-info {{item.username}}
+            .index-live-winner-purchase {{getPartnerFullName(item)}}
+            .index-live-winner-harvest
+              img(src="../img/card/winning.png")
+              span 中奖{{item.prize}}元

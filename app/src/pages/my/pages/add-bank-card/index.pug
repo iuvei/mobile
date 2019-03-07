@@ -1,0 +1,17 @@
+.add-bank-card-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+  .add-bank-card-main-container
+    van-cell-group
+      van-field(v-model="formData.name" required :readonly="nameReadonly" :label="'真实姓名'" :placeholder="'请输入真实姓名'" :error="errorInfo.name.state" :error-message="errorInfo.name.msg" @blur="() => checkItem('name')")
+      van-field(:value="getBankName(formData.bank_id)" required readonly :label="'银行名称'" is-link :error="errorInfo.bank_id.state" :error-message="errorInfo.bank_id.msg" :placeholder="'请选择银行'" @click="selectBank")
+      van-field(v-model="formData.card" required clearable :label="'银行卡号'" :error="errorInfo.card.state" :error-message="errorInfo.card.msg" maxlength="19" @blur="() => checkItem('card')" :placeholder="'请输入银行卡号'")
+      van-field(v-model="formData.address" required clearable :label="'开户行'" :placeholder="'请输入开户行'" :error="errorInfo.address.state" :error-message="errorInfo.address.msg" @blur="() => checkItem('address')")
+      van-field(v-model="formData.withdraw_password" type="password" maxlength="4" required readonly :label="'提现密码'" :placeholder="'请输入提现密码'" :error="errorInfo.withdraw_password.state" :error-message="errorInfo.withdraw_password.msg" @touchstart.native.stop="showKeyboard = true")
+    .add-bank-card-button-container
+      .common-large-btn(@click="submit") 提交
+    .add-bank-card-tips-container
+      p 说明：
+      p(v-for="(p,i) in prompt") {{`${i+1}. ${p}`}}
+  van-popup(v-model="showBankList" position="bottom" :overlay="true")
+    van-picker(ref="bankList" show-toolbar :columns="bankList" :title="'请选择银行'" :value-key="'name'" @confirm="selectBankConfirm" @cancel="selectBankCancel")
+  van-number-keyboard(:show="showKeyboard" @blur="showKeyboard = false" @input="keyboardInput" @delete="keyboardDelete")

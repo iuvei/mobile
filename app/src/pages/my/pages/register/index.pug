@@ -1,0 +1,88 @@
+.register-container
+  van-nav-bar(
+    title="会员注册"
+    left-arrow
+    @click-left="()=>this.$router.go(-1)"
+  )
+ 
+  .container(ref="container")
+    .scroller
+      van-cell-group.group-register
+        template(v-for="(item, index) in registerForms")
+          van-field(
+            v-if="item.show"
+            v-model="item.value"
+            :label="item.name"
+            :type="item.type"
+            :required="item.required"
+            :placeholder="item.placeholder"
+            :is-link="item.isLink"
+            :readonly="item.readonly"
+            :clearable="item.clearable"
+            :error-message="item.errorMsg"
+            @change="checkForm(item.item)"
+            @input="checkForm(item.item)"
+            @click="onClickSelect(item.item)")
+            van-button(
+              v-if="item.valid&&item.show || item.valid&&item.required&&item.show"
+              v-show="item.item === 'email' || item.item === 'mobile'"
+              slot="button"
+              size="small"
+              :disabled="item.disabled"
+              @click="getVcode(item)"
+            ) {{item.btnText}}
+            img(
+              v-if="item.img"
+              :src="item.img"
+              slot="button"
+              :disabled="item.disabled"
+              @click="getVcode(item)"
+            )
+          van-field(
+            v-if="item.valid&&item.show || item.valid&&item.required&&item.show"
+            v-show="item.item === 'email' || item.item === 'mobile'"
+            v-model="item.vcode"
+            label="验证码"
+            placeholder="请输入验证码"
+            :error-message="item.vcodeErrorMsg"
+            @change="checkForm(item.item)"
+            @input="checkForm(item.item)"
+            clearable
+            :required="item.valid&&item.required&&item.show || false"
+          )
+      
+      .agree-provision
+        van-checkbox(v-model="checked") 我已年满18岁并接受本站的
+          .iconfont.icon-hc-tick(
+            slot="icon"
+            slot-scope="props"
+            :class="props.checked ? 'active' : 'normal'")
+        span.provision(@click="gotoHelpCenter") 《服务条款》
+      .register-btn
+        .common-large-btn(@click="onClickRegister") 立即注册
+
+      .go-to-login
+        span 已有账号？
+        router-link(tag="span" to="/my/login") 马上登录
+
+  //- 下拉弹框-选择出生日期
+  van-actionsheet(
+    v-model="showSelectBirthday")
+    van-datetime-picker(
+      v-model="currentDate"
+      type="date"
+      :min-date="minDate"
+      :max-date="maxDate"
+      @confirm="onConfirm"
+      @cancel="showSelectBirthday = false"
+    )
+
+  //- 下拉弹框-选择性别
+  van-actionsheet(
+    v-model="showSelectSex")
+    van-picker(
+      show-toolbar
+      :columns="sexColumns"
+      @confirm="onConfirm"
+      @cancel="showSelectSex = false"
+    )

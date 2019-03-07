@@ -1,0 +1,46 @@
+.sales-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+  .sales-main-container
+    van-tabs(v-model="statusIndex")
+      van-tab(v-for="item in statusList" :key="item.code" :title="item.name")
+    van-cell-group
+      van-cell(:title="'查询时间：'" is-link :value="queryDateList[queryDateIndex].name" @click="dateListIsShow = true")
+      van-cell(v-if="customDate")
+        .custom-date-container(slot)
+          .custom-date-from(@click="customDateSelectEvent('date_begin')")
+            span 从：&nbsp;
+            span {{queryDate.date_begin}}
+          .custom-date-to(@click="customDateSelectEvent('date_end')")
+            span 到：&nbsp;
+            span {{queryDate.date_end}}
+          .custom-date-query
+            button(@click="doQuery") 查询
+    .sales-data-container(ref="container")
+      .sales-data-list
+        .no-data(v-if="datas.length === 0")
+          i.iconfont.icon-hc-no-data
+          div 没有数据
+        template(v-else)
+          .sales-data-item(v-for="item in datas" :key="item.id")
+            van-row
+              van-col.transverse(:span="24")
+                .item-label 活动：
+                .item-value {{item.active_name}}
+              van-col.transverse(:span="24")
+                .item-label 时间：
+                .item-value {{item.created_at}}
+              van-col.transverse(:span="24")
+                .item-label 优惠金额：
+                .item-value {{item.coupon_amount}}
+              van-col.transverse(:span="24")
+                .item-label 状态：
+                .item-value {{item.status}}
+              van-col.transverse(:span="24")
+                .item-label 备注：
+                .item-value {{item.remark}}
+        van-pagination(v-if="datas.length !== 0" v-model="pageInfo.current" :total-items="pageInfo.total" :items-per-page="pageInfo.size" @change="doQuery" mode="simple")
+  van-popup(v-model="dateListIsShow" position="bottom" :overlay="true")
+    van-picker(ref="queryDate" show-toolbar :columns="queryDateList" :value-key="'name'" @confirm="selectQueryDate" @cancel="closeQueryDate")
+  van-popup(v-model="customDateSelect" position="bottom" :overlay="true")
+    van-datetime-picker(v-if="customDateSelectTo === 'date_begin'" v-model="customDateSelectCur" :max-date="new Date(queryDate.date_end)" type="date" @confirm="customDateConfirm" @cancel="customDateCancel")
+    van-datetime-picker(v-if="customDateSelectTo === 'date_end'" v-model="customDateSelectCur" :min-date="new Date(queryDate.date_begin)" type="date" @confirm="customDateConfirm" @cancel="customDateCancel")

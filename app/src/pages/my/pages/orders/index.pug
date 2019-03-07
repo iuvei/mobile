@@ -1,0 +1,66 @@
+.orders-container
+  van-nav-bar(:title="title" left-arrow @click-left="goback")
+    .header-right(slot="right" @click="menuToggle")
+      span {{rightTitle}}
+      i.iconfont.icon-hc-filter
+  .orders-main-container
+    van-tabs(v-model="statusIndex")
+      van-tab(v-for="item in filterStatusList" :key="item.code" :title="item.name")
+    .orders-summary-container
+      .orders-summary-item
+        .item-label 交易额度
+        .item-val(:class="{green: summary.totalPrice > 0, red: summary.totalPrice < 0}") {{summary.totalPrice < 0 ? '-' : ''}}￥{{$fmoney(Math.abs(summary.totalPrice), 2)}}
+      .orders-summary-item
+        .item-label 盈亏
+        .item-val(:class="{green: summary.profit_loss > 0, red: summary.profit_loss < 0}") {{summary.profit_loss < 0 ? '-' : ''}}￥{{$fmoney(Math.abs(summary.profit_loss), 2)}}
+      .orders-summary-item
+        .item-label 总笔数
+        .item-val {{pageInfo.total}}笔
+    .orders-data-container(ref="container")
+      .orders-data-list
+        .no-data(v-if="datas.length === 0")
+          i.iconfont.icon-hc-no-data
+          div 没有数据
+        van-collapse(v-else v-model="openItems")
+          van-collapse-item(v-for="item in datas" :key="item.id" :name="item.id" :class="{win: item.status === 1}" :value="getState(item)")
+            .item-left(slot="title")
+              .item-name {{item.game_name}}
+              .item-dd {{dateStringify(item.time)}} 投{{numFormat(item.bet_amount)}}(元)
+            .item-content
+              van-row
+                van-col.transverse(:span="24")
+                  .item-info-label 流水号：
+                  .item-info-value {{item.order_number}}
+                van-col.transverse(:span="12")
+                  // @TODO 第三方：电竞没有投注平台
+                  .item-info-label 投注平台：
+                  .item-info-value {{item.name}}
+                van-col.transverse(:span="12")
+                  .item-info-label 投注金额：
+                  .item-info-value {{item.bet_amount}}
+                van-col.transverse(:span="12")
+                  .item-info-label 有效投注：
+                  .item-info-value {{item.validbet}}
+                van-col.transverse(:span="24")
+                  .item-info-label {{'投注内容'}}：
+                  // @TODO 第三方：电竞，label="注单详情"， 非第三方：电竞，label="投注内容"
+                  .item-info-value(v-html="item.game_type !== 6 && item.bet_content?item.bet_content:'第三方不支持查看'")
+
+        van-pagination(v-if="datas.length !== 0" v-model="pageInfo.current" :total-items="pageInfo.total" :items-per-page="pageInfo.size" @change="doQuery" mode="simple")
+    .menu-container(v-if="menuIsShow")
+      transition(name="fadeIn")
+        .menu-bg(@click="menuToggle" v-show="menuBgIsShow")
+      transition(name="moveIn")
+        .menu-list(@click.stop="" v-show="menuIsPop")
+          van-row
+            van-col(:span="6" v-for="(item, index) in menu" :key="index")
+              .menu-item(:class="{active: menuActive.menuIndex === index}" @click="menuActive.menuIndex = index") {{item.name}}
+          .date-list
+            .date-item(v-for="(item, index) in queryDateList" :key="index" :class="{active: menuActive.queryDateIndex === index}" @click="menuActive.queryDateIndex = index") {{item.name}}
+          van-row
+            van-col(:span="12")
+              .btn-item
+                button.btn.cancel(type="button" @click="menuToggle") 取消
+            van-col(:span="12")
+              .btn-item
+                button.btn.query(type="button" @click="menuSubmit") 查询

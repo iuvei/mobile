@@ -1,0 +1,95 @@
+.exchange
+  van-nav-bar(title="额度转换" @click-left="onClickLeft" left-arrow)
+  .container(ref="container")
+    .scroller
+      van-cell-group
+        //- 余额
+        van-cell.money(
+          title="余额"
+          center        
+        )
+          van-button.btn(slot="right-icon" @click="oneRecycle"  :disabled="btnAble") 全部回收
+
+        //- 主钱包
+        van-cell(
+          title="主钱包"
+          :value="$fmoney(mainWallet, 2)+'元'"
+          center        
+        )
+
+      van-cell-group
+        //- 转换
+        van-cell.money.title(
+          title="转换"
+          center        
+        )
+
+        //- 转出钱包
+        van-field(
+          label="转出钱包"
+          center
+          readonly
+          v-model="transferWalletObj.name"
+          is-link        
+          @click="onChangeCell('1',transferWalletObj)"   
+        )
+
+        //- 转入钱包
+        van-field(
+          label="转入钱包"
+          center
+          readonly
+          v-model="transferToWalletObj.name"
+          is-link
+          @click="onChangeCell('2',transferToWalletObj)"                        
+        )
+
+        //- 金额
+        van-field( 
+          label="金额" 
+          clearable
+          center
+          v-model="amount"
+          type="number"
+          :input-align="'left'"
+          placeholder="请填写要转换的金额"
+        )
+
+      //- 转换按钮
+      .submit
+        van-button.common-large-btn( size="large" type="default" @click="submit" :disabled="btnAble") 转换
+
+      //- 子钱包
+      //- h6.child-wallet 子钱包(转入或转出子钱包，只支持整元的转账金额)
+      van-cell-group
+        van-cell.money.title(
+          title="子钱包(转入或转出子钱包，只支持整元的转账金额)"
+          center        
+        )
+        van-cell(
+          v-for="item,index in childWalletArr"
+          :title="item.name"
+          :key="index"
+        )
+          template(slot="right-icon")
+            span.rotate(v-show="!item.isShow").refresh
+              .fff 
+            span.balance(v-show="item.isShow") {{item.balance==='获取失败'?item.balance:$fmoney(item.balance,2)+'元'}}
+            .refrash.iconfont.icon-hc-refresh(v-show="item.isShow" @click="reflreshChildWallet(index)")
+            
+
+
+    //- picker弹框
+    van-popup(v-model="popupObj.show"  position="bottom" :overlay="true" :lock-scroll="true")
+      van-picker.picker(
+        ref="picker"
+        show-toolbar
+        confirm-button-text="确认" 
+        cancel-button-text="取消" 
+        :columns="[{name:'主钱包'},...childWalletArr]"
+        :value-key="'name'"
+        @cancel="onPopupCancel"
+        @confirm="onPopupConfirm"
+      )
+
+

@@ -1,0 +1,21 @@
+.fixed-service-wrap
+  .fixed-service
+    top 74%
+
+    &.serve
+      background-image url('~@/components/fixed-service/img/fixed-service-egame.png')
+
+    &:nth-child(2)
+      top 83%
+
+  .van-popup
+    .van-cell-group
+      &:after
+        border none
+
+      .van-cell
+        background $base-bg-color-content
+        color #777
+
+        &:not(:last-child)::after
+          border-color $base-bg-color-divide

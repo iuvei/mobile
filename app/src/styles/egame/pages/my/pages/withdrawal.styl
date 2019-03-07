@@ -1,0 +1,95 @@
+.withdrawal
+  background $base-bg-color
+
+  .container
+    .pre-withdrawal
+      .amount-input
+        background $base-bg-color-input
+        border 1px solid #2C224D
+        color $base-text-color-content-sub
+      .available-amount
+        div
+          .no-fee-times
+            color $base-text-color-content-sub
+          .van-button
+            color $base-text-color-assistant
+            border 1px solid $base-text-color-assistant
+            background none
+
+      ul.notice
+        color $base-text-color-content-sub
+
+    .conf-withdrawal
+      ul
+        background $base-bg-color-content
+        color $base-text-color-content-main
+
+        li
+          &:not(:last-child)::after
+            border-right-color $base-bg-color-divide
+
+          .success
+            color $base-text-color-success
+
+          .fail
+            color $base-text-color-error
+
+      .group3
+        .van-cell
+          padding 2px 14px
+          .van-cell__value
+            span
+              color $base-text-color-error
+
+      .van-collapse
+        &:after
+          border 1px solid $base-bg-color-divide
+
+        .van-collapse-item
+          .van-cell
+            background $base-bg-color-content
+            color $base-text-color-title
+
+            &:not(:last-child)::after
+              border 1px solid $base-bg-color-divide
+
+          .van-collapse-item__wrapper
+            .van-collapse-item__content
+              background $base-bg-color
+            
+              .no-audit-data
+                color $base-text-color-content-sub
+
+              .appl-time
+                color $base-text-color-content-sub
+
+              table
+                background $base-bg-color
+
+                tr
+                  th
+                    background #4B4464
+                    border 1px solid #4B4464
+                    color $base-text-color-content-sub
+
+                  td
+                    border 1px solid #4B4464
+                    color $base-text-color-content-sub
+
+                  .success
+                    color $base-text-color-success
+
+                  .fail
+                    color $base-text-color-error
+
+  .withdradal-btns
+    background $base-bg-color-content
+    .cancel
+      color $base-bg-color-indicator
+      border 1px solid $base-bg-color-indicator
+    .confirm
+      background $base-bg-color-indicator
+      color #000
+
+      &.disabled
+        background $base-bg-color-button-disabled

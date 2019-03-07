@@ -1,0 +1,25 @@
+@import './pages/recommend.styl'
+@import './pages/search.styl'
+
+.game-container
+  .game-main
+    background-color $base-bg-color
+
+    .van-tabs.child
+      .van-tab
+        color $base-disabled-color
+
+        &.van-tab--active
+          .van-ellipsis
+            background-color #FAA96B
+
+    .game-recommend-container
+      .game-recommend-header
+        .title
+          color #777
+
+        span.more
+          color $base-disabled-color
+
+        a
+          color $base-main-font-color

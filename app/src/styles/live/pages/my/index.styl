@@ -1,0 +1,84 @@
+@import './pages/add-bank-card.styl'
+@import './pages/bank-card.styl'
+@import './pages/deposit.styl'
+@import './pages/effective-orders.styl'
+@import './pages/exchange.styl'
+@import './pages/help-center.styl'
+@import './pages/login.styl'
+@import './pages/message.styl'
+@import './pages/orders.styl'
+@import './pages/profile.styl'
+@import './pages/recharge/index.styl'
+@import './pages/records.styl'
+@import './pages/register.styl'
+@import './pages/sales.styl'
+@import './pages/security/index.styl'
+@import './pages/withdrawal.styl'
+
+.my
+  .container
+    background-color $base-bg-color
+
+    .user
+      background-image url('~@/pages/my/img/live/user-bg.png')
+      background-size 100% 100%
+
+      .img-refrash-1
+        color #33312B
+
+      .img-refrash
+        color #F2D68A
+
+      span.refresh
+        border 1px solid $base-main-color
+        .fff
+          background $base-main-color
+
+      .account
+        .unlogin-img
+          background-image url('~@/pages/my/img/live/user.svg')
+
+        .unlogin-text
+          color $base-content-bg-color
+
+      .login-account
+        color $base-content-bg-color
+
+        .top
+          .img
+            background-color #d8d8d8
+
+        .bottom
+          color $base-content-bg-color
+        
+        .children-wallet-wrap
+          background-color #313033    
+              
+          .tip
+            color #9d9c9c
+      .btns
+        .van-button
+          border-color $base-content-bg-color
+          color $base-content-bg-color
+
+          &:last-child
+            background-color $base-content-bg-color !important
+            border-color $base-content-bg-color
+            color $base-main-color
+
+    .group
+      .iconfont
+        &.icon-hc-money, &.icon-hc-record, &.icon-hc-tick, &.icon-hc-coupon
+          color #FD655D
+
+        &.icon-hc-member-message, &.icon-hc-card, &.icon-hc-personal-data
+          color #FF9553
+
+        &.icon-hc-security, &.icon-hc-help-center
+          color #438EE6
+
+
+
+      .info
+        background #F2D68A
+        color #33312B

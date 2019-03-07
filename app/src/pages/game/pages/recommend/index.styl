@@ -1,0 +1,98 @@
+.game-recommend-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color #E5E6E8
+  font-size 14px
+
+  .game-recommend-header
+    height 46px
+    overflow hidden
+
+    .game-recommend-header-scroller
+      transition transform 0.5s
+
+      i.icon-hc-query
+        font-size 18px
+
+      &.search
+        transform translateY(-46px)
+
+      .game-search-container
+        display flex
+        height 46px
+        align-items center
+        padding-left 16px
+
+        .game-search-icon
+          height 32px
+          width 32px
+          background-color #FFF
+          border-radius 18px 0 0 18px
+          display flex
+          justify-content center
+          align-items center
+
+          .icon-hc-query
+            font-size 18px
+            color #bbb
+
+        .game-search-input
+          height 32px
+          background-color #FFF
+          border-radius 0 18px 18px 0
+          flex 1
+          display flex
+
+          input
+            flex 1
+            border none
+            outline none
+            background-color transparent
+            color #777
+
+        .game-search-cancel
+          width 65px
+          text-align center
+
+  .game-recommend-content
+    flex 1
+    overflow hidden
+    background-color #FFF
+    color #8e8e8e
+
+    .scroller
+      padding 10px 0
+
+    .game-item
+      text-align center
+      padding-bottom 6px
+
+      .game-logo
+        width 82px
+        height 82px
+        margin 0 auto
+        position relative
+        display flex
+        justify-content center
+        padding-top 6px
+
+        img.logo
+          width 66px
+          height 66px
+          border-radius 20px
+          box-shadow 0 0 8px #dcdcdc
+
+        .star, .star-active
+          width 20px
+          height 20px
+          position absolute
+          bottom 15px
+          right 7px
+          background-image url('../../img/star.png')
+          background-repeat no-repeat
+          background-size 20px 20px
+
+        .star-active
+          background-image url('../../img/star_active.png')

@@ -1,0 +1,28 @@
+.message-container
+  color $base-font-color
+  background $base-bg-color
+
+  .container
+    .message-list
+      background $base-content-bg-color
+      .message-list-item
+        border-bottom 1px solid $base-bg-color-divide
+        .datetime
+          color $base-disabled-color
+        .have-read
+          color $base-success-color
+        .unread
+          color $base-error-color
+      
+      .item-delete
+        background-color $base-error-color
+        color #FFFFFF
+
+  .message-detail
+    background $base-bg-color
+
+    div
+      .top
+        background $base-content-bg-color
+      .datetime
+        color $base-disabled-color

@@ -1,0 +1,164 @@
+.recharge-online-container
+  width 100%
+  font-size 14px
+  flex 1
+  display flex
+  flex-direction column
+
+  .recharge-online-main
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .payment-method-container
+      background-color #FFF
+      padding 18px 13px 0
+
+      .payment-method-title
+        margin 0 3px 8px
+        color #777
+
+      .payment-method-list
+        padding 0 3px
+
+        .payment-method-item
+          height 50px
+          border 1px solid #ECEDED /* no */
+          border-radius 4px /* no */
+          margin-bottom 10px
+          display flex
+          justify-content center
+          align-items center
+          color #8E8E8E
+
+          &.active
+            color #FFF
+            .iconfont
+              &.icon-hc-wx_wap, &.icon-hc-alipay_wap, &.icon-hc-qq_wap, &.icon-hc-jingdong_wap
+                color #FFF
+
+          .iconfont
+            font-size 20px
+            margin-right 8px
+            &.icon-hc-wx_wap
+              color #06CB0D
+            &.icon-hc-alipay_wap
+              color #1296DB
+            &.icon-hc-qq_wap
+              color #DB2921
+            &.icon-hc-jingdong_wap
+              color #F74E47
+          
+          img
+            width 20px
+            height 20px
+            margin-right 8px
+
+    .deposit-money-container
+      margin-top 10px
+      background-color #FFF
+
+      .deposit-money-list
+        .recharge-radio
+          height 55px
+          >>>
+            .van-cell
+              height 55px
+
+            .van-cell__title
+              flex 7
+              -webkit-box-flex 7
+        .add-solt
+          display flex
+          align-items center
+          .left
+            width 80px
+            margin-top 8px
+            .iconfont
+              color #06CB0D
+            .passageway
+              margin 0 18px 0px 4px
+          .right
+            margin-top 10px
+            span
+              font-size 12px
+              width 220px
+              overflow hidden
+              word-break break-all
+              text-overflow ellipsis
+              display -webkit-box
+              -webkit-box-orient vertical
+              -webkit-line-clamp 2
+              
+
+    .deposit-money-input
+      margin-top 8px
+      padding-bottom 21px
+      position relative
+      &:after
+        content ""
+        position absolute
+        left 0
+        right -15px
+        bottom 0
+        border-bottom 0.5px solid #eee
+
+      input
+        width 100%
+        height 50px
+        border 1px solid #ECEDED
+        border-radius 2px
+        padding-left 5px
+        -webkit-appearance none
+
+    .discount-active-container
+      margin-top 10px
+      >>>
+        .van-collapse
+          .van-collapse-item
+            .van-collapse-item__title
+              color #CFCFCF
+              &:after
+                left 0 !important
+            .van-collapse-item__content
+              padding 0
+              .van-cell__title
+                color #777777
+
+    .recharge-tips
+      color #BBBBBB
+      padding 16px 14px
+      font-size 12px
+      line-height 18px
+
+    .gray
+      color #CFCFCF
+
+    .red
+      color #FF635B
+
+  .recharge-online-footer
+    height 40px
+    background-color #FFF
+    display flex
+    padding 10px 16px
+
+    .recharge-online-summary
+      display flex
+      align-items center
+      flex 1
+      color #777
+
+      .red
+        color #E9644E
+
+    button
+      width 167px
+      border none
+      border-radius 2px
+      font-size 16px
+      color #FFF
+      height 40px

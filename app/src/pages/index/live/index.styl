@@ -1,0 +1,248 @@
+@import '~@/styles/live/variable.styl'
+
+*
+  box-sizing border-box
+
+.index-live-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color $index-bg-color 
+  
+  .logo
+    display flex
+    align-items center
+    justify-content center
+    height 46px
+
+    img
+      height 26px
+
+  .header-right
+    font-size 12px  
+    color $base-font-color
+
+  .header-left
+    display flex
+    align-items center
+    color $base-main-color
+    .iconfont
+      font-size 18px
+
+    .text
+      margin-left 4px
+      font-size 12px
+      font-weight 400
+
+  .container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+    position relative
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .banner
+      img
+        width 100%
+        display block
+
+    .notice-wrap
+      background-color $base-content-bg-color
+      
+    .icon-hc-live-index-hot,.icon-hc-live-index-win
+      color #F2D68A
+      font-size 14px
+      margin-right 5px
+
+    .index-live-quick-access-container
+      display flex
+      padding 0 14px
+      background-color $base-content-bg-color
+      margin-top 10px
+
+      .index-live-quick-access-item
+        flex 1
+        display flex
+        flex-direction column
+        align-items center
+        margin 15px 0 10px
+
+        img
+          width 50px
+          height 52px
+
+        span
+          font-size 12px
+          color $base-font-color
+          margin-top 7px
+          
+    .index-live-categorys-container
+      background-color $base-content-bg-color
+      padding 15px
+      margin-top 10px
+      
+      .big,.medium,.small
+        background-repeat no-repeat
+        background-size 100%
+        display inline-block
+      
+      .big-wrap
+        overflow hidden
+
+        .big
+          width 170px
+          height 170px
+          float left
+
+          &.live
+            background-image url('~@/pages/index/img/live/live.png')
+
+          &.disable
+            -webkit-filter grayscale(100%)
+            filter gray
+
+        .medium
+          width 170px
+          height 82px
+          float right
+
+          &:nth-child(2)
+            margin-bottom 6px
+
+          &.card
+            background-image url('~@/pages/index/img/live/medium/card.png')
+
+          &.esport
+            background-image url('~@/pages/index/img/live/medium/esport.png')
+
+          &.lottery
+            background-image url('~@/pages/index/img/live/medium/lottery.png')
+
+          &.sport
+            background-image url('~@/pages/index/img/live/medium/sport.png')
+
+          &.egame
+            background-image url('~@/pages/index/img/live/medium/egame.png')
+
+          &.wait
+            background-image url('~@/pages/index/img/live/wait.png')
+
+      .small-wrap
+        display flex
+        justify-content space-around
+        margin-top 6px
+
+        .small
+          width 111px
+          height 82px
+          border-radius 4px
+
+          &.wait
+            background-image url('~@/pages/index/img/live/wait.png')
+            background-position center center
+            background-size 153%
+
+          &.sport
+            background-image url('~@/pages/index/img/live/small/sport.png')
+
+          &.lottery
+            background-image url('~@/pages/index/img/live/small/lottery.png')
+
+          &.esport
+            background-image url('~@/pages/index/img/live/small/esport.png')
+
+    .index-live-hots-container
+      margin-top 10px
+      background-color $base-content-bg-color
+      padding 0 15px
+      font-size 14px
+
+      .index-live-hots-title
+        padding 12px 0 
+        color #fff
+
+      .index-live-hots-content
+        padding-bottom 15px
+        display flex
+        flex-wrap nowrap
+        overflow-x scroll
+        -webkit-overflow-scrolling touch
+
+
+        .index-live-hot-item
+          flex 0 0 auto
+          text-align center
+          margin 0 15px
+
+          &:first-of-type
+            margin-left 0
+          
+          &:last-of-type
+            margin-right 0
+
+          .img-wrap
+            background-color #ffffff
+            width 75px
+            height 75px
+            display flex
+            justify-content center
+            align-items center
+            border-radius 15px
+
+            img
+              max-width 68px
+              max-height 68px
+
+          p
+            margin-top 9px
+            font-size 12px
+            color $base-font-color
+
+    .index-live-winner-list-container
+      background-color $base-content-bg-color
+      margin-top 10px
+      font-size 14px
+      padding 0 15px 10px
+
+      .index-live-winner-list-title
+        padding 12px 0
+        color #fff
+
+      .index-live-winner-list-content
+        height 140px
+        font-size 14px
+        overflow hidden
+        background-color $base-content-bg-color
+
+        .scroller
+          .index-live-winner-item
+            height 28px
+            width 100%
+            display flex
+            align-items center
+
+            .index-live-winner-info
+              flex 1
+              color $base-main-font-color
+
+            .index-live-winner-purchase
+              flex 1
+              color $base-font-color 
+
+            .index-live-winner-harvest
+              flex 1
+              display flex
+              align-items center
+
+              img
+                width 16px
+                height 16px
+                margin-right 3px
+
+              span
+                color #FF551C
+                white-space nowrap
+                

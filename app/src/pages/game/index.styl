@@ -1,0 +1,133 @@
+.game-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color #E5E6E8
+  font-size 14px
+
+  i.icon-hc-query
+    font-size 18px
+
+  img
+    display block
+
+  .game-main
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+
+    &::after
+      min-height cale(100% + 1px)
+
+    >>>
+      .van-tabs.child
+        background-color #FFF
+
+        .van-tabs__wrap
+          padding 0 10px
+
+        .van-tab
+          background-color #FFF
+          color #BBB
+          padding 0
+
+          .van-ellipsis
+            line-height 30px
+            display inline
+            padding 4px 15px 2px
+            font-size 12px
+            border-radius 20px
+
+          &.van-tab--active
+            .van-ellipsis
+              color #FFF
+
+        .van-tabs__line
+          display none
+
+    >>>
+      .van-tabs__nav--line
+        background-color #FFF
+
+        .van-tab
+          background-color #FFF
+          flex 0 0 auto
+          padding 0 10px
+
+    .game-active-container
+      .banner
+        img
+          width 100%
+          display block
+
+    .game-recommend-container
+      width 100%
+      background-color #FFF
+      padding-bottom 10px
+      margin-bottom 10px
+
+      .game-recommend-header
+        display flex
+        line-height 20px
+        padding 16px 14px 8px
+
+        .title
+          flex 1
+
+    .game-type-container
+      padding-bottom 10px
+      background-color #FFF
+
+      .game-type-title
+        padding 8px 24px 3px
+        line-height 20px
+
+      .game-type-content
+        padding-top 20px
+
+        .game-item
+          padding-bottom 6px
+
+    .no-data
+      margin-top 0
+      padding 30% 0
+      display flex
+      flex-direction column
+      align-items center
+
+      .iconfont
+        font-size 76px
+        color #e4e4e4
+
+    .game-item
+      text-align center
+      color #8e8e8e
+
+      .game-logo
+        width 82px
+        height 82px
+        margin 0 auto
+        position relative
+        display flex
+        justify-content center
+        padding-top 6px
+
+        img.logo
+          width 66px
+          height 66px
+          border-radius 20px
+          box-shadow 0 0 8px #dcdcdc
+
+        .star, .star-active
+          width 20px
+          height 20px
+          position absolute
+          bottom 15px
+          right 7px
+          background-image url('./img/star.png')
+          background-repeat no-repeat
+          background-size 20px 20px
+
+        .star-active
+          background-image url('./img/star_active.png')

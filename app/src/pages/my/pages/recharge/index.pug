@@ -1,0 +1,20 @@
+.recharge-container
+  van-nav-bar(:title="title" :right-text="rightTitle" @click-right="() => goto()" left-arrow @click-left="goback")
+  .recharge-main-container
+    van-tabs(v-model="active")
+      van-tab(title="线上充值" v-if="onlineData")
+        template(v-if="onlineData.list.length")
+          online(:data="onlineData" :disabled="disabled" @sumbit="submit")
+        template(v-else)
+          .empty
+            i.iconfont.icon-hc-no-recharge-channel
+            p 没有可用充值渠道，请联系客服。
+      van-tab(title="公司转账" v-if="offlineData")
+        template(v-if="offlineData.receive_bank.length")
+          Offline(:data="offlineData" :disabled="disabled" @sumbit="submit")
+        template(v-else)
+          .empty
+            i.iconfont.icon-hc-no-bank-card
+            p 没有可用收款账号，请联系客服。
+  transition(name="moveIn")
+    qrcode(v-if="isQrcode" :info="qrcodeInfo" @close="() => isQrcode = false")

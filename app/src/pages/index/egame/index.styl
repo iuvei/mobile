@@ -1,0 +1,287 @@
+@import '~@/styles/egame/variable.styl'
+
+*
+  box-sizing border-box
+
+.index-egame-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color $base-bg-color
+
+  .logo
+    display flex
+    align-items center
+    justify-content center
+    height 46px
+
+    img
+      height 26px
+
+  .header-right
+    color #fff
+
+  .header-left
+    display flex
+    align-items center
+    color #fff
+
+    .text
+      margin-left 5px
+      font-size 14px
+      font-weight 400
+
+  .container
+    flex 1
+    overflow auto
+    -webkit-overflow-scrolling touch
+    position relative
+
+    &::after
+      min-height cale(100% + 1px)
+
+    .banner
+      img
+        width 100%
+        display block
+
+    .notice-wrap
+      position absolute
+      width 100%
+      top 0
+      left 0
+
+    .index-egame-quick-access-container
+      display flex
+      padding 0 14px
+      transform translateY(-5px)
+      border-top-left-radius 8px
+      border-top-right-radius 8px
+      overflow hidden
+      background-color $base-bg-color
+
+      .index-egame-quick-access-item
+        flex 1
+        display flex
+        flex-direction column
+        align-items center
+        margin 11px 0 13px
+
+        img
+          width 50px
+          height 52px
+
+        span
+          font-size 12px
+          color $base-text-color-content-main
+
+    .index-egame-recommend-container
+      margin-top 5px
+      background-color $base-bg-color-content
+      overflow-x auto
+      -webkit-overflow-scrolling touch
+
+      .index-egame-recommend-content
+        display flex
+        padding 0 15px
+
+        .index-egame-hot-item
+          width 96px
+          flex 0 0 96px
+          height 121px
+          background-size cover
+          background-position-x center
+          background-position-y top
+
+          margin-right 6px
+          border-radius 5px
+          overflow hidden
+
+          &:last-of-type
+            margin-right 0
+
+          img
+            width 96px
+            height 121px
+            display block
+          
+          
+    .index-egame-reservior-container
+      padding 0 15px
+      margin-top 15px
+      .bg-container
+        width 345px
+        height 58px
+        background-image url('../img/egame/index-reservoir-bg.png')
+        background-size contain
+        background-position center
+        display flex
+        flex-flow row-reverse
+        .reword
+          height 58px
+          line-height 58px
+          width 228px
+          color #fff
+          font-size 28px
+          text-align center
+
+    .index-egame-categorys-container
+      background-color $base-bg-color-content
+      padding 0 15px
+      font-size 14px
+      margin-top 5px
+
+      .index-egame-categorys-title
+        height 20px
+        padding 20px 0 14px 0
+        color #000
+        display flex
+        align-items center
+        color $base-text-color-title
+
+      .index-egame-categorys-content
+        display flex
+        flex-wrap wrap
+
+        .index-egame-category-item
+          width 50%
+          display flex
+          height 52px
+          align-items center
+          color #555
+          border-top 1px solid $base-bg-color
+          border-left 1px solid $base-bg-color
+
+          &:nth-of-type(2n+1)
+            border-left none
+
+          .index-egame-category-icon
+            width 24px
+            height 24px
+            background-size 24px 24px
+            background-repeat no-repeat
+            margin-left 17px
+            margin-right 15px
+
+            &.card
+              background-image url('~@/pages/index/img/egame/icon-card.png')
+
+            &.egame
+              background-image url('~@/pages/index/img/egame/icon-egame.png')
+
+            &.esport
+              background-image url('~@/pages/index/img/egame/icon-esport.png')
+
+            &.live
+              background-image url('~@/pages/index/img/egame/icon-live.png')
+
+            &.lottery
+              background-image url('~@/pages/index/img/egame/icon-lottery.png')
+
+            &.sport
+              background-image url('~@/pages/index/img/egame/icon-sport.png')
+
+            &.wait
+              background-image url('~@/pages/index/img/egame/icon-wait.png')
+
+          .words
+            p
+              line-height 14px
+              font-size 12px
+              color $base-text-color-content-main
+
+              &.sub
+                font-size 10px
+                color $base-text-color-content-sub
+
+    .index-egame-hots-container
+      margin-top 5px
+      background-color $base-bg-color-content
+      padding 0 15px
+      font-size 14px
+
+      .index-egame-hots-title
+        height 20px
+        padding 20px 0 14px 0
+        color #000
+        display flex
+        align-items center
+        color $base-text-color-title
+
+      .index-egame-hots-content
+        padding 3px 0 11px
+        display flex
+        flex-wrap nowrap
+        overflow-x scroll
+        -webkit-overflow-scrolling touch
+
+
+        .index-egame-hot-item
+          flex 0 0 auto
+          text-align center
+          margin 0 9px
+
+          &:first-of-type
+            margin-left 0
+          &:last-of-type
+            margin-right 0
+
+          img
+            width 68px
+            margin-bottom 4px
+
+          p
+            font-size 12px
+            color $base-text-color-content-main
+
+    .index-egame-winner-list-container
+      background-color $base-bg-color-content
+      margin-top 5px
+      font-size 14px
+      padding 0 15px 10px
+      border-bottom 1px solid $base-bg-color
+
+      .index-egame-winner-list-title
+        height 20px
+        padding 20px 0 14px 0
+        color #000
+        display flex
+        align-items center
+        color $base-text-color-title
+
+      .index-egame-winner-list-content
+        height 140px
+        font-size 12px
+        overflow hidden
+        background-color $base-bg-color-content
+
+        .scroller
+          .index-egame-winner-item
+            height 28px
+            width 100%
+            display flex
+            align-items center
+
+            .index-egame-winner-info
+              flex 1
+              color $base-text-color-content-main
+
+            .index-egame-winner-purchase
+              flex 1
+              color $base-text-color-content-sub
+
+            .index-egame-winner-harvest
+              flex 1
+              display flex
+              align-items center
+
+              img
+                width 16px
+                height 16px
+                margin-right 3px
+
+              span
+                color #FF5235
+                white-space nowrap
+                

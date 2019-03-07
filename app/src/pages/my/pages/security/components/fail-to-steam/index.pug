@@ -1,0 +1,9 @@
+.fail-to-steam
+  van-nav-bar(title="提示" @click-left="onClickLeft" left-arrow)
+  .container
+    h1 操作失败
+    p {{steamFailMes}}
+    .button-box 
+      van-button.login.default.submit(@click.native="steamBind" type="large") 使用其他Steam账号绑定
+      van-button.default.steamLoginSubmit( @click.native="back" type="large") 回到首页
+  

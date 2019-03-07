@@ -1,0 +1,54 @@
+.records-container
+  .header-right
+    color $base-text-color-assistant
+  .records-main-container
+    background $base-bg-color
+    .scroller
+      .records-summary-container
+        background $base-bg-color-content
+        color $base-text-color-title
+        .records-summary-item
+          .records-summary-item-row
+            .green
+              color $base-text-color-success
+          &:first-child
+            border-right-color $base-bg-color-divide
+      .records-data-container
+        .records-data-list
+          .records-data-item
+            background $base-bg-color-content
+            border-bottom-color $base-bg-color-divide
+            color $base-text-color-title
+            .item-value
+              color $base-text-color-content-main
+
+    .menu-container
+      .menu-list
+        background $base-bg-color-content
+        .menu-item
+          background $base-bg-color-input
+          color $base-text-color-content-sub
+          border none
+          &.active
+            background-color $base-bg-color-indicator
+            color #000
+
+        .date-list
+          background $base-bg-color-input
+          .date-item
+            background-color $base-bg-color
+            color $base-text-color-content-sub
+
+            &.active
+              color $base-text-color-assistant
+
+        .btn-item
+          .btn
+            border 1px solid $base-bg-color-indicator
+            color $base-bg-color-indicator
+            background $base-bg-color-content
+
+            &.query
+              border none
+              background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+              color #333

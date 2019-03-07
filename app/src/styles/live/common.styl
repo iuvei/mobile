@@ -1,0 +1,156 @@
+#app.live
+  /* * 公共变量 */
+  @import './variable.styl'
+  /* * 公共组件 */
+  @import './components/exchange-dialog.styl'
+  @import './components/fixed-service.styl'
+  @import '/components/hc-dialog.styl'
+  @import './components/notice.styl'
+  @import './components/select-avater.styl'
+  @import './components/tabbar.styl'
+  @import './components/passpop.styl'
+  /* * 页面组件 */
+  @import './pages/category-esport/index.styl'
+  @import './pages/category-live/index.styl'
+  @import './pages/category-egame/index.styl'
+  @import './pages/category-card/index.styl'
+  @import './pages/category-sport/index.styl'
+  @import './pages/category-lottery/index.styl'
+  @import './pages/my/index.styl'
+  @import './pages/activity/index.styl'
+  @import './pages/game/index.styl'
+  @import './pages/trial.styl'
+
+  /*
+   * 大按钮（可用于登录、注册等）
+   */
+  .common-large-btn
+    background linear-gradient(180deg,rgba(255,240,199,1) 0%,rgba(247,223,156,1) 31%,rgba(247,219,141,1) 52%,rgba(242,214,138,1) 75%,rgba(224,199,128,1) 100%)
+    color #33312B
+    line-height 40px
+    height 40px
+    font-size 16px
+    text-align center
+    border-radius 3px
+    border none
+
+  /* 没有数据的样式-个人中心的有效投注等多个页面会用到 */
+  .no-data
+    color $base-disabled-color
+    .icon-hc-no-data
+      color #666666
+    div
+      color $base-disabled-color
+
+  input::input-placeholder
+    color $base-disabled-color !important
+
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+    color $base-disabled-color !important
+
+  input:-moz-placeholder, textarea:-moz-placeholder
+    color $base-disabled-color !important
+
+  input::-moz-placeholder, textarea::-moz-placeholder
+    color $base-disabled-color !important
+
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder
+    color $base-disabled-color !important
+
+  .van-tabs__wrap
+    &::after
+      border-width 0
+    .van-tabs__nav
+      background linear-gradient(135deg,rgba(46,43,51,1) 0%,rgba(9,5,18,1) 100%)
+    .van-tab
+      color $base-main-font-color
+      background none
+
+    .van-tab.van-tab--active
+      color $base-main-color
+
+    .van-tabs__line
+      background-color $base-main-color
+  
+  .van-cell-group
+    background-color $base-content-bg-color
+    &:after
+      border-color $base-bg-color-divide
+
+  .van-cell
+    background-color $base-content-bg-color
+    color #666
+    &:after
+      border-color $base-bg-color-divide
+      background-color $base-content-bg-color
+
+    .van-cell__title
+      color $base-font-color
+
+    .van-cell__value, .van-field__control--right
+      color #666
+
+    .van-cell__right-icon
+      color #CFCFCF
+      
+  // info
+  .van-picker__confirm
+    color $base-main-font-color
+
+  // banner滑动标识(小圆点)
+  .van-swipe__indicator
+    background-color rgba(219,219,219,0.6)
+    width 10px
+    height 10px
+
+    &.van-swipe__indicator--active
+      background-color #fff
+
+  // 所有页头底色nav-bar
+  .van-nav-bar
+    background: linear-gradient(135deg,rgba(46,43,51,1) 0%,rgba(9,5,18,1) 100%)
+    color #cccccc
+
+    &::after
+      border-bottom-color #2E2B33
+
+    .van-nav-bar__text:active
+      background rgba(46,43,51,1)
+    .van-nav-bar__title
+      color #eeeeee
+  ul.van-pagination
+    .van-pagination__next,
+    .van-pagination__prev
+      color $base-main-color
+      border 1px solid $base-main-color
+    .van-pagination__item::after
+      border none
+    .van-pagination__item--disabled, 
+    .van-pagination__item--disabled:active
+      border 1px solid $base-disabled-color
+      color $base-disabled-color
+  
+  .van-picker
+    background-color $base-content-bg-color
+    .van-picker__cancel
+      color $base-main-font-color
+    .van-picker__confirm
+      color $base-main-color
+    .van-picker__title
+      color $base-font-color
+    .van-hairline--top-bottom::after
+      border-color $base-bg-color-divide
+    .van-picker-column__item
+      color $base-main-font-color
+      &.van-picker-column__item--selected
+        color $base-font-color
+
+  
+  .van-collapse[class*=van-hairline]::after,
+  .van-collapse-item[class*=van-hairline]::after
+    border-color $base-bg-color-divide
+
+// 取代.hairlines给：after或者：before加的border为0.5px
+.hairlines .live .van-cell:not(:last-child)::after
+  border-bottom 1px solid #3B3B3B !important
+  

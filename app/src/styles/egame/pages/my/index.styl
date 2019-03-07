@@ -1,0 +1,90 @@
+@import './pages/add-bank-card.styl'
+@import './pages/bank-card.styl'
+@import './pages/deposit.styl'
+@import './pages/effective-orders.styl'
+@import './pages/exchange.styl'
+@import './pages/help-center.styl'
+@import './pages/login.styl'
+@import './pages/message.styl'
+@import './pages/orders.styl'
+@import './pages/recharge/index.styl'
+@import './pages/records.styl'
+@import './pages/register.styl'
+@import './pages/sales.styl'
+@import './pages/security/index.styl'
+@import './pages/withdrawal.styl'
+@import './pages/find-password.styl'
+@import './pages/profile.styl'
+
+.my
+  .container
+    background $base-bg-color
+
+    .user
+      background-image url('~@/pages/my/img/egame/user-bg.png')
+      background-size 100% 100%
+      color #ffffff
+
+      .img-refrash-1
+        color #ffffff
+
+      .img-refrash
+        color $base-bg-color-indicator    
+
+      span.refresh
+        border 1px solid $base-bg-color-indicator
+
+        .fff
+          background $base-bg-color-indicator
+
+      .account
+        .unlogin-img
+          background-image url('~@/pages/my/img/egame/user.svg')
+
+        .unlogin-text
+          color $base-content-bg-color
+
+      .login-account
+        color $base-content-bg-color
+
+        .top
+          .img
+            background-color #d8d8d8
+
+        .bottom
+          color $base-content-bg-color
+        
+        .children-wallet-wrap
+          background-color #1E1734
+
+          .tip
+            color #7B7C8C
+            
+      .btns
+        .van-button
+          border-color #fff
+          color #fff
+
+          &:last-child
+            background-color $base-bg-color-indicator !important
+            border-color $base-bg-color-indicator
+            color $base-text-color-button
+
+    .group
+      .iconfont
+        &.icon-hc-money, &.icon-hc-record, &.icon-hc-tick, &.icon-hc-coupon
+          color #FF6565
+
+        &.icon-hc-member-message, &.icon-hc-card, &.icon-hc-personal-data
+          color #FF9553
+
+        &.icon-hc-security, &.icon-hc-help-center
+          color #61AAFF
+
+
+      .van-cell__title span
+        color $base-text-color-title
+
+      .info
+        background $base-bg-color-indicator
+        color #333

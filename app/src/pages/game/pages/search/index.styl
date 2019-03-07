@@ -1,0 +1,102 @@
+.game-search-container
+  width 100%
+  flex 1
+  display flex
+  flex-direction column
+  background-color #F5F5F5
+  font-size 14px
+
+  .game-search-header
+    display flex
+    min-height 46px
+    align-items center
+    padding-left 16px
+
+    .game-search-icon
+      height 32px
+      width 32px
+      background-color #FFF
+      border-radius 18px 0 0 18px
+      display flex
+      justify-content center
+      align-items center
+
+      .icon-hc-query
+        font-size 18px
+        color #bbb
+
+    .game-search-input
+      height 32px
+      background-color #FFF
+      border-radius 0 18px 18px 0
+      flex 1
+      display flex
+
+      input
+        flex 1
+        border none
+        outline none
+        background-color transparent
+        color #777
+
+    .game-search-cancel
+      width 65px
+      text-align center
+
+  .game-recommend-container
+    background-color #FFF
+
+    .game-recommend-header
+      padding 15px 15px 19px
+      color #777
+
+  .game-items
+    .game-item
+      text-align center
+      color #8e8e8e
+
+      .game-logo
+        width 82px
+        height 82px
+        margin 0 auto
+        position relative
+        display flex
+        justify-content center
+        padding-top 6px
+
+        img.logo
+          width 66px
+          height 66px
+          border-radius 20px
+          box-shadow 0 0 8px #dcdcdc
+
+        .star, .star-active
+          width 20px
+          height 20px
+          position absolute
+          bottom 15px
+          right 7px
+          background-image url('../../img/star.png')
+          background-repeat no-repeat
+          background-size 20px 20px
+
+        .star-active
+          background-image url('../../img/star_active.png')
+
+  .game-search-content
+    background-color #fff
+    padding 20px 0
+    overflow auto
+
+    .game-search-loading
+      display flex
+      align-items center
+      justify-content center
+
+      >>>
+        .van-loading
+          height 20px
+
+    .game-search-datas
+      .game-item
+        padding-bottom 12px

@@ -1,0 +1,24 @@
+.security
+  template(v-if="type==='list'")
+    van-nav-bar(title="安全中心" @click-left="onClickLeft" left-arrow)
+    .container
+      van-cell-group.group(v-if="dataSource" v-for="group,index in dataSource" :key="index" :style="{'margin-top':index!==0?'10px':'0'}")
+        van-cell(
+          v-for="item,i in group"
+          :key="i"
+          :title="item.title"
+          :value="item.status==0?status0:item.title==='实名认证'?'查看':status1"
+          @click.native="onClickCell(item)"
+        )
+    passpop(:passpop="passpop")
+  template(v-else-if="type==='failSteam'")
+    fail-to-steam(:steamFailMes="steamFailMes")
+  template(v-else)
+    edit(
+      :type="type"
+      :editObj ="editObj"
+      :form ="form"      
+      @returnToList="returnToList"
+      @onTabs="onTabs"
+    )
+    

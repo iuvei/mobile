@@ -1,0 +1,17 @@
+.security-passpop.pop-window.animated
+  transition(name="fadeIn")
+    .pop-bg.animated(v-show="passpop.isShow" @click.stop="hide")
+  transition(name="moveIn")
+    .pop-box.animated(v-show="keybordIsPop")
+      p.pop-title {{passpop.title}}
+      van-password-input(
+        :value="password"
+        :length="passpop.number"
+      )
+      van-number-keyboard(
+        :show="true"
+        @input="onInput"
+        @delete="onDelete"
+      )
+
+

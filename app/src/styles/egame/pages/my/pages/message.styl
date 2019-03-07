@@ -1,0 +1,38 @@
+.message-container
+  background-color $base-bg-color
+  .container
+    .scroller
+      .van-tabs
+        .van-tabs__wrap
+          .van-tabs__nav
+            background-color $base-bg-color-nav
+            .van-tab
+              background-color transparent
+        .van-tabs__content
+          background-color $base-bg-color
+          .message-list-item
+            border-bottom-color $base-bg-color-divide
+            .tit
+              color $base-text-color-title
+            .datetime
+              color $base-text-color-content-sub
+            .unread
+              color $base-text-color-error
+            .have-read
+              color $base-text-color-success
+          .item-delete
+            background-color $base-text-color-error
+            color #FFFFFF
+  .message-detail
+    background-color $base-bg-color-content
+
+    .top
+      color $base-text-color-title
+      background-color $base-bg-color-nav
+    .tit, .con
+      color $base-text-color-content-main
+    .datetime
+      color $base-text-color-content-sub
+
+
+

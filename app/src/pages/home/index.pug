@@ -1,0 +1,8 @@
+.home
+  section(:style="!isTabbarVisible && { bottom: '0' }" v-if="subscriptionAllRight")
+    fixed-service
+    keep-alive(:exclude="['login', 'register', 'trial', 'game', 'add-bank-card']")
+      router-view(:class="{['no-scroll']: noScroll}")
+  tabbar(v-if="isTabbarVisible")
+  loading(v-if="isLoading")
+  exchange-dialog

@@ -1,0 +1,108 @@
+@import './pages/add-bank-card.styl'
+@import './pages/bank-card.styl'
+@import './pages/deposit.styl'
+@import './pages/effective-orders.styl'
+@import './pages/exchange.styl'
+@import './pages/help-center.styl'
+@import './pages/login.styl'
+@import './pages/message.styl'
+@import './pages/orders.styl'
+@import './pages/profile.styl'
+@import './pages/recharge/index.styl'
+@import './pages/records.styl'
+@import './pages/register.styl'
+@import './pages/sales.styl'
+@import './pages/security/index.styl'
+@import './pages/withdrawal.styl'
+
+.my
+  .container
+    .user
+      background-image url('~@/pages/my/img/card/user-bg.png')
+      background-color #5b4dff
+
+      .img-refrash-1
+        color #ffffff
+
+      .img-refrash
+        color  #6C65FF
+        
+      span.refresh
+        border 1px solid $base-main-color
+        .fff
+          background $base-main-color
+
+      .account
+        .unlogin-img
+          background-image url('~@/pages/my/img/card/user.svg')
+
+        .unlogin-text
+          color #fff
+
+      .login-account
+        color #fff
+
+        .top
+          .img
+            background-color #d8d8d8
+
+        .bottom
+          color #fff
+
+        .children-wallet-wrap
+          background-color #fff      
+              
+          .tip
+            color #9d9c9c
+
+        .children-wallet-wrap
+          top 119px
+
+      .btns
+        .van-button
+          border-color #fff
+          color #fff
+
+          &:last-child
+            background-color #fff !important
+            border-color #fff
+            color $base-main-font-color
+
+    .loginout-btn
+      padding 20px 12px 30px
+
+    .group
+      .iconfont
+        &.icon-hc-money
+          color #FF65A1
+
+        &.icon-hc-record
+          color #FA5285
+
+        &.icon-hc-tick
+          color #F33B79
+
+        &.icon-hc-coupon
+          color #F74275
+
+        &.icon-hc-member-message
+          color #00ABFA
+
+        &.icon-hc-card
+          color #008BF8
+
+        &.icon-hc-personal-data
+          color #007AF8
+
+        &.icon-hc-security
+          color #A92FFF
+
+        &.icon-hc-help-center
+          color #9431FF
+
+      >>>
+        .van-cell__title span
+          color #777777
+
+      .info
+        background-color $base-main-font-color

@@ -1,0 +1,62 @@
+.effective-orders-container
+  .header-right
+    color $base-text-color-assistant
+  .effective-orders-main-container
+    background $base-bg-color
+    .effective-orders-table-container
+      table
+        thead
+          th
+            .cell
+              background #383054
+              color $base-text-color-content-main
+              border-bottom 1px solid $base-bg-color-divide
+            &:not(:last-child) .cell
+              border-right 1px solid $base-bg-color-divide
+        tbody
+
+          tr.summary td .cell
+            background-color #231C3C
+
+          .cell
+            background $base-bg-color-content
+            color $base-text-color-content-sub
+            border-bottom 1px solid $base-bg-color-divide
+            border-right 1px solid $base-bg-color-divide
+            
+            &.red
+              color $base-text-color-error
+
+            &.green
+              color $base-text-color-success
+
+    .menu-container
+      .menu-list
+        background $base-bg-color-content
+        .menu-item
+          background $base-bg-color-input
+          color $base-text-color-content-sub
+          border none
+          &.active
+            background-color $base-bg-color-indicator
+            color #000
+
+        .date-list
+          background $base-bg-color-input
+          .date-item
+            background-color $base-bg-color
+            color $base-text-color-content-sub
+
+            &.active
+              color $base-text-color-assistant
+
+        .btn-item
+          .btn
+            border 1px solid $base-bg-color-indicator
+            color $base-bg-color-indicator
+            background $base-bg-color-content
+
+            &.query
+              border none
+              background linear-gradient(180deg, $base-bg-color-button-start 0%, $base-bg-color-button-end 100%)
+              color #333

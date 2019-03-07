@@ -1,0 +1,8 @@
+van-tabbar.tabbar(v-model="activeTab" @change="changeActiveTab")
+  van-tabbar-item(v-for="item, index in tabs" :key="index" :to="item.to" v-if="hiddenTab(item)" :info="item.label==='我的'&&messageNum>0?messageNum:''")
+    span.label(slot-scope="props" :class="{active: props.active}") {{ item.label }}
+    i.iconfont(
+      slot="icon" 
+      slot-scope="props" 
+      :class="[`icon-hc-${theme}-tabbar-${item.class}`, props.active? 'active': '']")
+

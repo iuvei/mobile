@@ -1,0 +1,45 @@
+.orders-container
+  .header-right .iconfont
+    color #9D70FF
+  .orders-main-container
+    .orders-summary-container
+      .orders-summary-item
+        .item-val
+          &.red
+            color $base-error-color
+
+          &.green
+            color $base-success-color
+
+    .orders-data-container
+      background-color $base-content-bg-color
+      .orders-data-list
+        .van-collapse-item.win
+            .van-cell__value
+              color $base-success-color
+
+    .menu-container
+      .menu-list
+        .menu-item
+          color #8E8E8E
+
+          &.active
+            color #FFF
+            background-color #9D70FF
+
+        .date-list
+          .date-item
+            background-color #F6F7F8
+            color #777
+
+            &.active
+              color $base-disabled-color
+
+        .btn-item
+          .btn
+            border 1px solid $base-main-color
+            color $base-main-font-color
+
+            &.query
+              background-color $base-main-color
+              color #FFF

@@ -1,0 +1,43 @@
+$width = 50px
+$height = 50px
+
+.fixed-service-wrap
+  .fixed-service
+    width $width
+    height $height
+    overflow hidden
+    position fixed
+    right 12px
+    top 68%
+    z-index 1000
+
+    &.serve
+      background-repeat no-repeat
+      background-size $width $height
+
+    &:nth-child(2)
+      top 75%
+
+    .img
+      display block
+      width 100%
+      height 100%
+
+  .float
+    width 40px
+    padding 5px 5px 0
+    height auto
+    background none
+
+    .close
+      position absolute
+      top 0
+      right 0
+      width 10px
+      height 10px
+      font-size 5px
+      line-height 10px
+      text-align center
+      border-radius 5px
+      color #fff
+      background rgba(0, 0, 0, 0.6)

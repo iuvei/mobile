@@ -1,0 +1,48 @@
+.message-container
+  van-nav-bar(
+    title="消息"
+    left-arrow
+    @click-left="()=>this.$router.go(-1)"
+  )
+  .container(ref="container")
+    .scroller
+      van-tabs(
+        v-model="activeTab"
+        @click="onClickTab"
+      )
+        van-tab(
+          v-for="(item, index) in msgTabs"
+          :key="index"
+          :title="item"
+          :disabled="disabled"
+          )
+          template(v-if="!disabled")
+            .message-list(v-if="msgDataLists && msgDataLists.length > 0" :key="index")
+              van-swipe-cell(
+                :right-width="65"
+                v-for="(item, index) in msgDataLists"
+                :key="index")
+                .message-list-item(
+                  @click="onClickMessage(item,index)")
+                  div
+                    .tit.van-ellipsis {{item.title}}
+                    .datetime {{item.start_time}}
+                  div
+                    .have-read(v-if="!!item.status") 已读
+                    .unread(v-else) 未读
+                button.item-delete(@click="onClose(item.id)" slot="right") 删除
+            .no-data(v-else)
+              i.iconfont.icon-hc-no-data
+              div 没有数据
+
+  //- 消息详情
+  van-popup.message-detail(
+    v-model="messagePopupShow"
+    position="right"
+    :overlay="false")
+    div
+      .top 消息详情
+        .close(@click="closeDetail") ×
+      .tit {{detail.title}}
+      .con {{detail.content}}
+      .datetime {{detail.start_time}}

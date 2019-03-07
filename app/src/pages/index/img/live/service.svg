@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>在线客服ico</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="18.1196795%" y1="0%" x2="92.9669654%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFE7A1" offset="0%"></stop>
+            <stop stop-color="#AF8C24" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="45" height="45" rx="22.5"></rect>
+        <linearGradient x1="94.8005477%" y1="37.5299318%" x2="57.6580538%" y2="97.3499349%" id="linearGradient-4">
+            <stop stop-color="#FFE28C" offset="0%"></stop>
+            <stop stop-color="#F7E19E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="6.33592847%" y1="59.2368491%" x2="88.6740436%" y2="29.8237615%" id="linearGradient-5">
+            <stop stop-color="#FAD784" offset="0%"></stop>
+            <stop stop-color="#D4A722" stop-opacity="0.4" offset="100%"></stop>
+        </linearGradient>
+        <path d="M16.7815231,22.8775791 C20.1897628,22.6134801 23.0137328,20.2365887 23.9550562,17.0013755 C24.0524345,17.0343879 24.1498127,17.0343879 24.2796504,17.0343879 C25.2209738,17.0343879 26,16.2420908 26,15.2847318 L26,11.1581843 C26,10.1678129 25.2209738,9.4085282 24.2796504,9.4085282 L24.2796504,8.22008253 C24.2796504,3.66437414 20.6441948,0 16.1972534,0 L9.83520599,0 C5.35580524,3.90945109e-16 1.75280899,3.69738652 1.75280899,8.22008253 L1.75280899,9.37551582 C0.779026217,9.37551582 0,10.1678129 0,11.1251719 L0,15.218707 C0,16.2090784 0.779026217,16.9683631 1.72034956,16.9683631 C2.66167291,16.9683631 3.44069913,16.176066 3.44069913,15.218707 L3.44069913,8.22008253 C3.44069913,4.65474553 6.29712859,1.74965612 9.80274657,1.74965612 L16.164794,1.74965612 C19.670412,1.74965612 22.5268414,4.65474553 22.5268414,8.22008253 L22.5268414,14.6574966 C22.5268414,18.0577717 19.9300874,20.8638239 16.619226,21.0949106 L15.3857678,21.0949106 C15.0611735,20.4016506 14.3470662,19.9064649 13.56804,19.9064649 C12.4644195,19.9064649 11.5555556,20.8308116 11.5555556,21.9532325 C11.5555556,23.0756534 12.4644195,24 13.56804,24 C14.3795256,24 15.0611735,23.5378267 15.3857678,22.8115543 L16.7815231,22.8775791 Z M12.75,18.9074519 C9.85937499,18.9074519 6.5,15.6040522 6.5,12.1759959 C6.5,11.9266827 6.5,11.6773695 6.57812501,11.4280563 C10.25,9.55820742 10.40625,8 10.40625,8 C10.40625,8 11.34375,10.9917582 18.921875,11.4280563 C18.921875,11.6773695 19,11.9266827 19,12.1759959 C19,15.6040522 15.640625,18.9074519 12.75,18.9074519 Z M16.6073658,20.0013755 C19.139201,20.0013755 21.2166042,17.8885832 21.2166042,15.3136176 L21.2166042,7.68775791 C21.2166042,5.1127923 19.139201,3 16.6073658,3 L9.10923845,3 C6.57740325,3 4.5,5.1127923 4.5,7.68775791 L4.5,15.3136176 C4.5,17.8885832 6.57740325,20.0013755 9.10923845,20.0013755 L11.1573251,20.0013755 C11.7415947,19.2751032 12.4265021,18.999156 13.4327443,18.999156 C14.4065271,19.0321684 15.0544723,19.3081155 15.638742,20.0013755 L16.6073658,20.0013755 Z" id="path-6"></path>
+        <filter x="-13.5%" y="-10.4%" width="126.9%" height="129.2%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.478431373   0 0 0 0 0.478431373   0 0 0 0 0.478431373  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="修改的地方" transform="translate(-307.000000, -207.000000)">
+            <g id="在线客服" transform="translate(307.000000, 207.000000)">
+                <g id="金底">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Rectangle-5" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <circle id="Oval-2" fill-opacity="0.5" fill="url(#linearGradient-4)" mask="url(#mask-3)" cx="-4" cy="3" r="31"></circle>
+                    <circle id="Oval-2" fill-opacity="0.7" fill="url(#linearGradient-5)" mask="url(#mask-3)" cx="22" cy="45" r="23"></circle>
+                </g>
+                <g id="kefu-3" transform="translate(10.000000, 11.000000)" fill-rule="nonzero">
+                    <g id="Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                        <use fill="#FFFFFF" xlink:href="#path-6"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
